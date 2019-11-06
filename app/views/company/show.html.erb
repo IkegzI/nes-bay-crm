@@ -1,0 +1,5 @@
+<h1><%= @company.name %></h1>
+<p><%= @company.phone %></p>
+<p><%= @company.address %></p>
+<%= link_to 'Изменить', edit_company_path(@company), class: "link item" %>
+<%= link_to 'Удалить', company_path(@company), method: 'DELETE', class: "link item" %>
