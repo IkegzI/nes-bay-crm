@@ -1,0 +1,23 @@
+<h1>Создать компанию</h1>
+
+<%= form_for :company, url: '/company/new', class: 'form' do |f| %>
+	
+	<div>
+  <p>
+    <%= f.label 'Имя компании' %>
+    <%= f.text_field :name, class: 'editor text_field', id: :name %>
+  </p>
+
+  <p>
+    <%= f.label 'Телефон' %>
+    <%= f.text_field :phone, class: 'editor text_field', id: :phone %>
+  </p>
+
+  <p>
+    <%= f.label 'Адрес' %>
+    <%= f.text_field :address, class: 'editor text_field', id: :address %>
+  </p>
+ </div>
+  
+  <%= f.submit 'Создать', class: 'button' %>
+<% end %>

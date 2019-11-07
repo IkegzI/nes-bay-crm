@@ -4,30 +4,38 @@ class CompanyController < ApplicationController
   def create
     @company = Company.new
   end
+  
+  def new
+	@company = Company.new
+  end
+  
+  def save
+	company = Company.create(params_company)
+	redirect_to action: "show", id: company.id
+	
+  end
 
   def show
-    @company = Company.find(id_company)
-    post("/company/#{id_company}") do
-    company = edit_params_company
-      debugger
-
-    end
-
+    @company = Company.find(params_id)
+    #post("/company/#{params_id}") do
+	#	@company = edit_params_company
+    #end
   end
 
   def edit
-    @company = Company.find(id_company)
+    @company = Company.find(params_id)
   end
 
   def update
-    param =  edit_params_company
-    edit_params = {}
-    
-    binding.pry
-
+    param =  params_company
+    Company.update(params_id, params_company)
+	#binding.pry
+	redirect_to action: "show", id: params_id
   end
 
-  def delete
+  def destroy
+	Company.delete(params_id)
+	redirect_to action: "index"
   end
 
   def index
@@ -38,12 +46,14 @@ class CompanyController < ApplicationController
 
   private
 
-  def id_company
+  def params_id
     params.require(:id).to_i
   end
 
-  def edit_params_company
-    params.require(:company)
+  def params_company
+	param = {}
+	params.require(:company).each { |item| param[item[0].to_sym] = item[1] }
+	return param
   end
 
 end

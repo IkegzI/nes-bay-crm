@@ -1,15 +1,21 @@
-<h1>Список компаний</h1>
-<p>
+<div>
   <% @company.each_with_index do |item, index| %>
     <div class="company" id="<%= index %>">
-      <h4 class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[1]}" %>"><%= item.name %></h4>
-      <span class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[2]}" %>"><%= item.address %></span>
-      <span class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[3]}" %>"><%= item.phone %></span>
-    <p>
-      <%= link_to 'Подробнее', company_path(item), class: "link item" %>
-      <%= link_to 'Изменить', edit_company_path(item), class: "link item" %>
-      <%= link_to 'Удалить', company_path(item), method: 'DELETE', class: "link item" %>
-    </p>
+    <div>
+		<div>
+			<h3 class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[1]}" %>"><%= item.name %></h4>
+		</div>
+		<div>
+			<span class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[2]}" %>"><%= item.address %></span>
+		<div>
+			<span class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[3]}" %>"><%= item.phone %></span>
+		</div>
+    </div>
+		<div class="link action">
+			<%= link_to 'Подробнее', company_path(item), class: "link item" %>
+			<%= link_to 'Изменить', edit_company_path(item), class: "link item" %>
+			<%= link_to 'Удалить', company_path(item), method: 'DELETE', class: "link item" %>
+		</div>
     </div>
   <% end %>
-  </p>
+</div>

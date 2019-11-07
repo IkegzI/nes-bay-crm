@@ -1,0 +1,16 @@
+<div>
+  <p>
+    <%= f.label 'Имя компании' %>
+    <%= f.text_field :name, value: @company.name || '', class: 'editor text_field', id: :name %>
+  </p>
+
+  <p>
+    <%= f.label 'Телефон' %>
+    <%= f.text_field :phone, value: @company.phone || '', class: 'editor text_field', id: :phone %>
+  </p>
+
+  <p>
+    <%= f.label 'Адрес' %>
+    <%= f.text_field :address, value: @company.address || '', class: 'editor text_field', id: :address %>
+  </p>
+ </div>
