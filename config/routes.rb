@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'manager/new'
+  get 'manager/create'
+  get 'manager/show'
+  get 'manager/edit'
+  get 'manager/destroy'
   root 'company#index'
   resources 'company'
   # get 'company/create'
