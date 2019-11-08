@@ -1,2 +1,35 @@
-<h1>Contact#new</h1>
-<p>Find me in app/views/contact/new.html.erb</p>
+<h1>Создать компанию</h1>
+<div class="new form">
+<%= form_for :contact, url: '/contact/new' do |f| %>
+
+
+
+    <%= select_tag('company[id]', options_for_select(companies_name_id), class: 'new select', id: :company) %>
+    <p>
+      <%= f.label 'ФИО', class: 'label' %>
+      <%= f.text_field :name, class: 'new text_field', id: :name %>
+    </p>
+
+    <p>
+      <%= f.label 'Телефон', class: 'label' %>
+      <%= f.text_field :phone, class: 'new text_field', id: :phone %>
+    </p>
+
+    <p>
+      <%= f.label 'Должность', class: 'label' %>
+      <%= f.text_field :position, class: 'new text_field', id: :position %>
+    </p>
+
+    <p>
+      <%= f.label 'День рождения', class: 'label' %>
+      <%= f.text_field :birthday, class: 'new text_field', id: :birthday %>
+    </p>
+
+    <p>
+      <%= f.label 'Коментарий', class: 'label' %>
+      <%= f.text_field :comment, class: 'new text_field', id: :comment %>
+    </p>
+
+  <%= f.submit 'Создать', class: 'button' %>
+<% end %>
+</div>

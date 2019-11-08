@@ -1,0 +1,8 @@
+<h1><%= @contact.name %></h1>
+<p><%= @contact.phone %></p>
+<p><%= @contact.position %></p>
+<p><%= @contact.birthday %></p>
+<p><%= @contact.comment %></p>
+<p><%= names_company_in_str(@contact.company_ids) %></p>
+<%= link_to 'Изменить', edit_company_path(@contact), class: "link item" %>
+<%= link_to 'Удалить', company_path(@contact), method: 'DELETE', class: "link item" %>
