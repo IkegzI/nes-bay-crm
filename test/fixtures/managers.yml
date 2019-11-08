@@ -3,9 +3,7 @@
 one:
   name: MyString
   phone: MyString
-  company: one
 
 two:
   name: MyString
   phone: MyString
-  company: two

@@ -1,3 +1,3 @@
 class Manager < ApplicationRecord
-  has_many :companys
+  has_many :companies
 end
