@@ -1,4 +1,10 @@
 <h1>Все контакты</h1>
 <div>
+<% @contact.each do |item| %>
+<h4><%= item.name %></h4>
+<p><%= (Company.find(item.company_ids).map{ |com| com.name }) %></p>
+<p><%= item.position%></p>
+<p><%= item.phone%></p>
+<% end %>
 </div>
 
