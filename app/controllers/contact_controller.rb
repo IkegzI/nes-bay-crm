@@ -1,14 +1,14 @@
-class ManagerController < ApplicationController
+class ContactController < ApplicationController
   def new
   end
 
   def create
   end
 
-  def show
+  def index
   end
 
-  def edit
+  def show
   end
 
   def destroy

@@ -1,28 +1,28 @@
 require 'test_helper'
 
-class ManagerControllerTest < ActionDispatch::IntegrationTest
+class ContactControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get manager_new_url
+    get contact_new_url
     assert_response :success
   end
 
   test "should get create" do
-    get manager_create_url
+    get contact_create_url
+    assert_response :success
+  end
+
+  test "should get index" do
+    get contact_index_url
     assert_response :success
   end
 
   test "should get show" do
-    get manager_show_url
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get manager_edit_url
+    get contact_show_url
     assert_response :success
   end
 
   test "should get destroy" do
-    get manager_destroy_url
+    get contact_destroy_url
     assert_response :success
   end
 

@@ -3,7 +3,13 @@
 one:
   name: MyString
   phone: MyString
+  position: MyString
+  birthday: 2019-11-08
+  comment: MyText
 
 two:
   name: MyString
   phone: MyString
+  position: MyString
+  birthday: 2019-11-08
+  comment: MyText

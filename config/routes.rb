@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'contact/new'
+  get 'contact/create'
+  get 'contact/index'
+  get 'contact/show'
+  get 'contact/destroy'
   get 'manager/new'
   get 'manager/create'
   get 'manager/show'
