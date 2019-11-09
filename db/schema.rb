@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_094145) do
+ActiveRecord::Schema.define(version: 2019_11_09_083148) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2019_11_08_094145) do
     t.integer "contact_id"
     t.index ["company_id"], name: "index_companies_contacts_on_company_id"
     t.index ["contact_id"], name: "index_companies_contacts_on_contact_id"
+  end
+
+  create_table "companies_regions", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "region_id"
+    t.index ["company_id"], name: "index_companies_regions_on_company_id"
+    t.index ["region_id"], name: "index_companies_regions_on_region_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -44,6 +51,13 @@ ActiveRecord::Schema.define(version: 2019_11_08_094145) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["companies_id"], name: "index_managers_on_companies_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.integer "code_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

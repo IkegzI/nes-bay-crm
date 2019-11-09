@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'region/new'
+  get 'region/index'
+  get 'region/destroy'
+  get 'region/show'
   resources 'contact'
   # get 'contact/new'
   # get 'contact/create'
