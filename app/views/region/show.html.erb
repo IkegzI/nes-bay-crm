@@ -1,2 +1,14 @@
-<h1>Region#show</h1>
-<p>Find me in app/views/region/show.html.erb</p>
+<h2>Подробнее о городе</h2>
+
+<div>
+  <p class="region"><%= @region.name %></p>
+  <span>Компании в регионе</span>
+
+  <div class="link company">
+    <% @region.companies.each do |company| %>
+      <p>
+      <%= link_to company.name, company_path(company) %>
+      </p>
+  <% end %>
+  </div>
+</div>

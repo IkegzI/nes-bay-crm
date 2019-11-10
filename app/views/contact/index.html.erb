@@ -1,8 +1,11 @@
 <h1>Все контакты</h1>
 <div>
+  <%= link_to 'Создать контакт', new_contact_path %>
+</div>
+<div>
 <% @contact.each do |item| %>
 <h4><%= item.name %></h4>
-<p><%= (names_company_in_str(item.company_ids)) %></p>
+<!--<p><%#= (names_company_in_str(item.company_ids)) %></p>-->
 <p><%= item.position%></p>
 <p><%= item.phone%></p>
     <div class="link action">

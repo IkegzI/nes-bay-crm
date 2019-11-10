@@ -3,7 +3,8 @@
 <%= form_for :company, url: '/company/new', class: 'form' do |f| %>
 	
 	<div>
-  <p>
+    <%= select_tag('company[region_id]', options_for_select(regions_name_id), class: 'new select', id: :region) %>
+    <p>
     <%= f.label 'Имя компании' %>
     <%= f.text_field :name, class: 'editor text_field', id: :name %>
   </p>

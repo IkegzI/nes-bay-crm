@@ -1,3 +1,5 @@
 <div>
   <%= render 'contact/contact' %>
+  <%= link_to 'Изменить', edit_contact_path(@contact), class: "link item" %>
+  <%= link_to 'Удалить', contact_path(@contact), method: 'DELETE', class: "link item" %>
 </div>

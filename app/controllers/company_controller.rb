@@ -7,10 +7,12 @@ class CompanyController < ApplicationController
 
   def new
     @company = Company.new
+    @region = Region.all
   end
 
   def save
     company = Company.create(params_company)
+
     redirect_to action: "show", id: company.id
   end
 
@@ -46,6 +48,7 @@ class CompanyController < ApplicationController
   def params_id
     params.require(:id).to_i
   end
+
 
   def params_company
     param = {}

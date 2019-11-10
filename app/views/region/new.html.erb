@@ -1,2 +1,14 @@
-<h1>Region#new</h1>
-<p>Find me in app/views/region/new.html.erb</p>
+<h1>Создать регион</h1>
+
+<%= form_for :region, url: '/region/new', class: 'new form' do |f| %>
+
+  <div>
+    <p>
+      <%= f.label 'Название региона', class: 'label_field'%>
+      <%= f.text_field :name, class: 'text_field', id: :name %>
+    </p>
+
+  </div>
+
+  <%= f.submit 'Создать', class: 'button' %>
+<% end %>

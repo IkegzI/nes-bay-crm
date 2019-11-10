@@ -1,2 +1,14 @@
-<h1>Region#index</h1>
-<p>Find me in app/views/region/index.html.erb</p>
+<h1>Регионы</h1>
+<div>
+  <%= link_to 'Создать регион', new_region_path %>
+</div>
+<div>
+  <% @region.each do |item| %>
+    <p><%= item.name %></p>
+    <div class="link action">
+      <%= link_to 'Подробнее', region_path(item), class: "link item" %>
+      <%= link_to 'Изменить', edit_region_path(item), class: "link item" %>
+      <%= link_to 'Удалить', region_path(item), method: 'DELETE', class: "link item" %>
+    </div>
+  <% end %>
+</div>
