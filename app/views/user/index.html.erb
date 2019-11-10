@@ -1,0 +1,20 @@
+<div>
+  <%= link_to 'Создать пользователя', new_user_path %>
+</div>
+<div>
+  <% @user.each_with_index do |item, index| %>
+    <div class="user" id="<%= item.id %>">
+      <div>
+        <div>
+          <p class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[1]}" %>" id="<%= index %>"><%= index+1 %>. <%= item.name %></p>
+        </div>
+        </div>
+        <div class="link action">
+          <%= link_to 'Подробнее', user_path(item.id), class: "link item" %>
+          <%= link_to 'Изменить', edit_user_path(item.id), class: "link item" %>
+          <%= link_to 'Удалить', user_path(item.id), method: 'DELETE', class: "link item" %>
+        </div>
+      </div>
+  <% end %>
+  </div>
+</div>

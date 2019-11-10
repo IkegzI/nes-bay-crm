@@ -1,0 +1,31 @@
+<h1>Создать пользователя</h1>
+
+<div>
+  <%= form_for :user, url: new_user_path, class: 'new form' do |f| %>
+
+    <p>
+      <%= f.label 'ФИО', class: 'label_field' %>
+      <%= f.text_field :name, class: 'text_field', id: :name %>
+    </p>
+    <p>
+      <%= f.label 'Логин', class: 'label_field' %>
+      <%= f.text_field :login, class: 'text_field', id: :login %>
+    </p>
+    <p>
+      <%= f.label 'Пароль', class: 'label_field' %>
+      <%= f.text_field :pass, class: 'text_field', id: :pass %>
+    </p>
+    <p>
+      <%= f.label 'Регион', class: 'label_field' %>
+      <%= f.select :region_id, options_for_select(regions_name_id), class: 'new select', id: :region %>
+    </p>
+    <p>
+      <%= f.label 'Роль', class: 'label_field' %>
+      <%= f.select :role_id, options_for_select(role_name_id), class: 'new select', id: :role %>
+    </p>
+
+
+    </div>
+
+    <%= f.submit 'Создать', class: 'button' %>
+  <% end %>

@@ -12,15 +12,11 @@ class CompanyController < ApplicationController
 
   def create
     company = Company.create(params_company)
-
-    redirect_to action: "show", id: company.id
+    redirect_to company_path(company)
   end
 
   def show
     @company = Company.find(params_id)
-    #post("/company/#{params_id}") do
-    #	@company = edit_params_company
-    #end
   end
 
   def edit
@@ -28,10 +24,8 @@ class CompanyController < ApplicationController
   end
 
   def update
-    param = params_company
     Company.update(params_id, params_company)
-    #binding.pry
-    redirect_to action: "show", id: params_id
+    redirect_to company_path(params_id)
   end
 
   def destroy

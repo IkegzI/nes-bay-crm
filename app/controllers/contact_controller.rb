@@ -19,6 +19,11 @@ class ContactController < ApplicationController
     @contact = Contact.find(params_id)
   end
 
+  def update
+    Contact.update(params_id, params_contact)
+    redirect_to contact_path(params_id)
+  end
+
   def show
     @contact = Contact.find(params_id)
   end

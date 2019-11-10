@@ -11,4 +11,7 @@
       </p>
   <% end %>
   </div>
+
+  <%= link_to 'Изменить', edit_region_path(@region), class: "link item" %>
+  <%= link_to 'Удалить', region_path(@region), method: 'DELETE', class: "link item" %>
 </div>

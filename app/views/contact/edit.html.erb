@@ -1,6 +1,6 @@
 <h1>Изменение сведений о <%= @contact.name %></h1>
 
-<%= form_for :contact, url: contact_path(@contact), class: 'form' do |f| %>
+<%= form_for :contact, url: edit_contact_path(@contact), class: 'form' do |f| %>
 	
 	<div>
   <p>

@@ -1,0 +1,11 @@
+<div>
+<h4><%= @user.name %></h4>
+
+<p><%= @user.role.name %></p>
+
+<p><%= @user.region.name %></p>
+
+  <%= link_to 'Изменить', edit_user_path(@user), class: "link item" %>
+  <%= link_to 'Удалить', user_path(@user), method: 'DELETE', class: "link item" %>
+
+</div>
