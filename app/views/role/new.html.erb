@@ -1,0 +1,14 @@
+<h1>Создать роль</h1>
+
+<%= form_for :role, url: '/role/new', class: 'new form' do |f| %>
+
+  <div>
+    <p>
+      <%= f.label 'Название роли', class: 'label_field'%>
+      <%= f.text_field :name, class: 'text_field', id: :name %>
+    </p>
+
+  </div>
+
+  <%= f.submit 'Создать', class: 'button' %>
+<% end %>

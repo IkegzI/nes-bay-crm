@@ -9,7 +9,7 @@ def random_str
   words  = ('а'..'я').map{ |item| item }
   words << ' '
   word = ''
-  rand(10).times {|i| word += words[rand(words.size)]}
+  rand(2..10).times {|i| word += words[rand(words.size)]}
   word
 end
 def random_text

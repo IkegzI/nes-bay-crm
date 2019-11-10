@@ -1,16 +1,16 @@
 require "application_controller.rb"
 
 class CompanyController < ApplicationController
-  def create
-    @company = Company.new
-  end
+  # def create
+  #   @company = Company.new
+  # end
 
   def new
     @company = Company.new
     @region = Region.all
   end
 
-  def save
+  def create
     company = Company.create(params_company)
 
     redirect_to action: "show", id: company.id

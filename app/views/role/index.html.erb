@@ -1,0 +1,14 @@
+<h1>Роли</h1>
+<div>
+  <%= link_to 'Создать роль', new_role_path %>
+</div>
+<div>
+  <% @role.each do |item| %>
+    <p><%= item.name %></p>
+    <div class="link action">
+      <%= link_to 'Подробнее', role_path(item), class: "link item" %>
+      <%= link_to 'Изменить', edit_role_path(item), class: "link item" %>
+      <%= link_to 'Удалить', role_path(item), method: 'DELETE', class: "link item" %>
+    </div>
+  <% end %>
+</div>

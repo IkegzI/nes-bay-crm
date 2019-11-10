@@ -23,6 +23,17 @@ class RegionController < ApplicationController
     @region = Region.find(params_id)
   end
 
+  def edit
+    @region = Role.find(params_id)
+  end
+
+  def update
+    param = params_role
+    Region.update(params_id, param_region)
+    #binding.pry
+    redirect_to role_path(params_id)
+  end
+
 
   private
 

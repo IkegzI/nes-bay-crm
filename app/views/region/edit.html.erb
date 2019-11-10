@@ -1,21 +1,11 @@
-<h1>Изменение сведений о <%= @company.name %></h1>
+<h1>Изменение сведений о <%= @region.name %></h1>
 
-<%= form_for :company, url: company_path(@company), class: 'form' do |f| %>
+<%= form_for :region, url: company_path(@region), class: 'form' do |f| %>
 	
 	<div>
   <p>
-    <%= f.label 'Имя компании' %>
-    <%= f.text_field :name, value: @company.name, class: 'editor text_field', id: :name %>
-  </p>
-
-  <p>
-    <%= f.label 'Телефон' %>
-    <%= f.text_field :phone, value: @company.phone, class: 'editor text_field', id: :phone %>
-  </p>
-
-  <p>
-    <%= f.label 'Адрес' %>
-    <%= f.text_field :address, value: @company.address, class: 'editor text_field', id: :address %>
+    <%= f.label 'Имя региона' %>
+    <%= f.text_field :name, value: @region.name, class: 'editor text_field', id: :name %>
   </p>
  </div>
   
