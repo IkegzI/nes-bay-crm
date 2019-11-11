@@ -3,14 +3,6 @@
 <div>
   <p class="region"><%= @role.name %></p>
 
-  <!--  <span>Компании в регионе</span>-->
-<!--  <div class="link company">-->
-    <%# role.companies.each do |company| %>
-<!--      <p>-->
-      <%#= link_to company.name, company_path(company) %>
-<!--      </p>-->
-  <%# end %>
-<!--  </div>-->
   <%= link_to 'Изменить', edit_role_path(@role), class: "link item" %>
   <%= link_to 'Удалить', role_path(@role), method: 'DELETE', class: "link item" %>
 </div>

@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Nb</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Nb</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= link_to  'Регионы',   region_index_path%>
-    <%= link_to  'Компании',  company_index_path%>
-    <%= link_to  'Контакты',  contact_index_path%>
-    <%= link_to  'Роли',  role_index_path%>
-    <%= link_to  'Менеджеры',  user_index_path%>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <div class="container menu">
+    <span class="time"><%= Time.now.strftime("Сегодня %d.%m.%Y, текущее время %M:%H") %></span>
+    <%= link_to 'Регионы', region_index_path %>
+    <%= link_to 'Компании', company_index_path %>
+    <%= link_to 'Контакты', contact_index_path %>
+    <%= link_to 'Роли', role_index_path %>
+    <%= link_to 'Менеджеры', user_index_path %>
+    <%= link_to 'Менеджеры', user_index_path %>
+  </div>
+</head>
 
-  <body>
+<body>
+<header>
+  <div class="container">
+
+  </div>
+</header>
+<main>
+  <div class="container">
     <%= yield %>
-  </body>
+  </div>
+</main>
+<footer>
+
+</footer>
+</body>
 </html>

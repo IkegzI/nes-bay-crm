@@ -1,15 +1,15 @@
 <h1>Создать роль</h1>
 
 <div>
-  <%= form_for :user, url:  edit_user_path(@role), class: 'edit form' do |f| %>
+  <%= form_for :user, url:  edit_user_path(@user), class: 'edit form' do |f| %>
 
     <p>
       <%= f.label 'ФИО', class: 'label_field' %>
-      <%= f.text_field :name, value: @role.name, class: 'text_field', id: :name %>
+      <%= f.text_field :name, value: @user.name, class: 'text_field', id: :name %>
     </p>
     <p>
       <%= f.label 'Логин', class: 'label_field' %>
-      <%= f.text_field :login, value: @role.login, class: 'text_field', id: :login %>
+      <%= f.text_field :login, value: @user.login, class: 'text_field', id: :login %>
     </p>
     <p>
       <%= f.label 'Пароль', class: 'label_field' %>
@@ -17,11 +17,11 @@
     </p>
     <p>
       <%= f.label 'Регион', class: 'label_field' %>
-      <%= f.select :region_id, options_for_select(regions_name_id), value: @role.region_id, class: 'edit select', id: :region %>
+      <%= f.select :region_id, options_for_select(regions_name_id), value: @user.region_id, class: 'edit select', id: :region %>
     </p>
     <p>
       <%= f.label 'Роль', class: 'label_field' %>
-      <%= f.select :role_id, options_for_select(role_name_id), value: @role.role_id, class: 'edit select', id: :role %>
+      <%= f.select :role_id, options_for_select(role_name_id), value: @user.role_id, class: 'edit select', id: :role %>
     </p>
 
 

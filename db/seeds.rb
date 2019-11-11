@@ -34,13 +34,34 @@ end
 Region.create(name: 'Иркутская область')
 Region.create(name: 'Красноярский край')
 
-100.times do
+Role.create(name: "Директор")
+Role.create(name: "Руководитель подразделения")
+Role.create(name: "Менеджер")
+Role.create(name: "Заточник")
 
+User.create(name: 'Артур Пирожков', login: 'manager1', pass: '123',
+            role_id: Role.ids[rand(0..Role.all.size-1)],
+            region_id: Region.ids[rand(0..(Region.all.size-1))])
+puts
+User.create(name: 'Иван Иванов', login: 'manager2', pass: '123',
+            role_id: Role.ids[rand(0..Role.all.size)],
+            region_id: Region.ids[rand(0..(Region.all.size-1))])
+
+User.create(name: 'Артур Нитаньяху', login: 'manager3', pass: '123',
+            role_id: Role.ids[rand(0..Role.all.size)],
+            region_id: Region.ids[rand(0..(Region.all.size-1))])
+
+User.create(name: 'Иван Ургант', login: 'manager4', pass: '123',
+            role_id: Role.ids[rand(0..Role.all.size)],
+            region_id: Region.ids[rand(0..(Region.all.size-1))])
+
+100.times do
   company = Company.new(
       name: 'Компания ' + random_str,
       address: 'ул. ' + random_str + ' ДОМ ' + random_num(rand(1..2)) ,
       phone: '+7' + random_num(10),
-      region_id: (Region.find(rand(1..Region.ids.size))).id
+      region_id: (Region.find(rand(1..Region.ids.size))).id,
+      user_id: User.ids[rand(0..(User.all.size-1))]
   )
   puts 'Создание компании ' + (company.save).to_s
   company.save

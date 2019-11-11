@@ -16,4 +16,9 @@ module CompanyHelper
     contacts.chomp(', ')
   end
 
+  def user_name_id
+    user = User.all
+    user.map{|item| [item.name, item.id]}
+  end
+
 end

@@ -17,6 +17,10 @@
     <%= f.label 'Адрес' %>
     <%= f.text_field :address, value: @company.address, class: 'editor text_field', id: :address %>
   </p>
+    <p>
+      <%= f.label 'Менеджер', class: 'label_field' %>
+      <%= f.select :role_id, options_for_select(user_name_id), value: @user.user_id, class: 'edit select', id: :role %>
+    </p>
  </div>
   
   <%= f.submit 'Изменить', class: 'button' %>

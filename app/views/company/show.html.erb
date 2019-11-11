@@ -1,15 +1,31 @@
-<h1><%= @company.name %></h1>
-<%= link_to @company.region.name, region_path(@company.region) %>
-<p><%= @company.phone %></p>
-<p><%= @company.address %></p>
+<div class="data">
+  <div class="info item">
+    <h3><%= @company.name %></h3>
+    <%= link_to @company.region.name, region_path(@company.region) %>
+    <p><%= @company.phone %></p>
+    <p><%= @company.address %></p>
 
-<span>Контакты</span>
-<div class="link contact">
-  <% @company.contacts.each do |contact| %>
+    <%= link_to 'Изменить', edit_company_path(@company), class: "link item" %>
+    <%= link_to 'Удалить', company_path(@company), method: 'DELETE', class: "link item" %>
+  </div>
+
+
+  <div class="info link contact">
+    <h3>Контакты</h3>
+    <% @company.contacts.each do |contact| %>
+      <p>
+        <%= link_to contact.name, contact_path(contact) %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="info user">
+    <h3>
+      Менеджер
+    </h3>
     <p>
-    <%= link_to contact.name, contact_path(contact) %>
+    <%= link_to @company.user.name, user_path(@company.user) %>
     </p>
-<% end %>
+  </div>
+
 </div>
-<%= link_to 'Изменить', edit_company_path(@company), class: "link item" %>
-<%= link_to 'Удалить', company_path(@company), method: 'DELETE', class: "link item" %>
