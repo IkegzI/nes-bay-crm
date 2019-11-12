@@ -20,10 +20,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_102030) do
     t.datetime "updated_at", null: false
     t.integer "region_id"
     t.integer "user_id"
-    t.integer "status_id"
-    t.boolean "active"
     t.index ["region_id"], name: "index_companies_on_region_id"
-    t.index ["status_id"], name: "index_companies_on_status_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
@@ -34,25 +31,36 @@ ActiveRecord::Schema.define(version: 2019_11_12_102030) do
     t.index ["contact_id"], name: "index_companies_contacts_on_contact_id"
   end
 
-  create_table "companies_instruments", force: :cascade do |t|
+  create_table "company_instrument_service_sphereworks", force: :cascade do |t|
     t.integer "company_id"
     t.integer "instrument_id"
-    t.index ["company_id"], name: "index_companies_instruments_on_company_id"
-    t.index ["instrument_id"], name: "index_companies_instruments_on_instrument_id"
+    t.integer "service_id"
+    t.integer "spherework_id"
+    t.index ["company_id"], name: "index_company_instrument_service_sphereworks_on_company_id"
+    t.index ["instrument_id"], name: "index_company_instrument_service_sphereworks_on_instrument_id"
+    t.index ["service_id"], name: "index_company_instrument_service_sphereworks_on_service_id"
+    t.index ["spherework_id"], name: "index_company_instrument_service_sphereworks_on_spherework_id"
   end
 
-  create_table "companies_services", force: :cascade do |t|
+  create_table "company_instruments", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "instrument_id"
+    t.index ["company_id"], name: "index_company_instruments_on_company_id"
+    t.index ["instrument_id"], name: "index_company_instruments_on_instrument_id"
+  end
+
+  create_table "company_services", force: :cascade do |t|
     t.integer "company_id"
     t.integer "service_id"
-    t.index ["company_id"], name: "index_companies_services_on_company_id"
-    t.index ["service_id"], name: "index_companies_services_on_service_id"
+    t.index ["company_id"], name: "index_company_services_on_company_id"
+    t.index ["service_id"], name: "index_company_services_on_service_id"
   end
 
-  create_table "companies_sphereworks", force: :cascade do |t|
+  create_table "company_sphereworks", force: :cascade do |t|
     t.integer "company_id"
     t.integer "spherework_id"
-    t.index ["company_id"], name: "index_companies_sphereworks_on_company_id"
-    t.index ["spherework_id"], name: "index_companies_sphereworks_on_spherework_id"
+    t.index ["company_id"], name: "index_company_sphereworks_on_company_id"
+    t.index ["spherework_id"], name: "index_company_sphereworks_on_spherework_id"
   end
 
   create_table "contacts", force: :cascade do |t|
