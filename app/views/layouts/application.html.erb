@@ -14,7 +14,12 @@
     <%= link_to 'Контакты', contact_index_path %>
     <%= link_to 'Роли', role_index_path %>
     <%= link_to 'Менеджеры', user_index_path %>
-    <%= link_to 'Менеджеры', user_index_path %>
+    <% if logged_in? %>
+      <%= link_to 'Выйти', logout_path, method: 'DELETE' %>
+    <% else %>
+      <%= link_to 'Войти', login_path %>
+    <% end %>
+
   </div>
 </head>
 

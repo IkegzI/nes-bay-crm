@@ -1,0 +1,15 @@
+<h1>Вход</h1>
+<div>
+  <%= form_for :session, url: login_path, class: 'new form' do |f| %>
+
+    <p>
+      <%= f.label 'Логин', class: 'label_field' %>
+      <%= f.text_field :login, class: 'text_field', id: :login %>
+    </p>
+    <p>
+      <%= f.label 'Пароль', class: 'label_field' %>
+      <%= f.text_field :pass, class: 'text_field', id: :pass, type: "password" %>
+    </p>
+    <%= f.submit 'Создать', class: 'button' %>
+  <% end %>
+</div>
