@@ -85,15 +85,23 @@ Status.create(name: 'Покупает Редко')
 Status.create(name: 'Перекупщик')
 Status.create(name: 'Прекратил сотрудничество')
 
+Typetalk.create(name: 'Телефон')
+Typetalk.create(name: 'Почта')
+Typetalk.create(name: 'Посещение')
+
 
 100.times do
+  region = Region.all.sample.id
   company = Company.new(
       name: 'Компания ' + random_str,
       address: 'ул. ' + random_str + ' ДОМ ' + random_num(rand(1..2)) ,
       phone: '+7' + random_num(10),
-      region_id: Region.all.sample.id,
-      user_id: (User.all.sample).id,
-      active: true,
+      active: rand(10)> 5 ? true: false,
+      email: random_str + "@#{rand(321312)}.ru",
+      site: random_str + '.ru',
+      equipment: 'Станок' + random_str,
+      region_id: region,
+      user_id: User.where(region_id: region).sample.id,
       status_id: Status.all.sample.id
   )
   puts 'Создание компании ' + (company.save).to_s
@@ -110,6 +118,7 @@ end
   contact = Contact.new(
       name: 'Господин ' + random_str,
       phone: '+7' + random_num(10),
+      email: random_str + "@#{rand(321312)}.ru",
       position: random_psn,
       birthday: "#{rand(1900 + 2019)}.#{rand(12)}.#{rand(28)}",
       comment: 'Этот чувак ' + random_text

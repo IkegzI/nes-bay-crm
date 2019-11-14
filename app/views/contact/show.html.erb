@@ -1,5 +1,31 @@
-<div>
-  <%= render 'contact/contact' %>
-  <%= link_to 'Изменить', edit_contact_path(@contact), class: "link item" %>
-  <%= link_to 'Удалить', contact_path(@contact), method: 'DELETE', class: "link item" %>
+<div class="data br">
+  <div class="info item">
+
+    <h1><%= @contact.name %></h1>
+
+    <p><%= @contact.phone %></p>
+    <p><%= @contact.position %></p>
+    <p><%= @contact.birthday %></p>
+    <p><%= @contact.comment %></p>
+    <%= link_to 'Изменить', edit_contact_path(@contact), class: "link item" %>
+    <%= link_to 'Удалить', contact_path(@contact), method: 'DELETE', class: "link item" %>
+  </div>
+  <div class="info item">
+    <%= link_to 'Компании контакта', company_index_path, class: 'title link none_decor_link' %>
+    <div class="link contact">
+      <% @contact.companies.each do |company| %>
+        <p>
+          <%= link_to company.name, company_path(company) %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="info item">
+    <%= link_to 'Регион', region_index_path, class: 'title link none_decor_link' %>
+    <div class="link contact">
+      <p><%= link_to region_currect_contact(@contact).name, region_path(region_currect_contact(@contact)) %></p>
+    </div>
+  </div>
+
 </div>

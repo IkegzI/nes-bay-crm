@@ -1,10 +1,7 @@
 class AddColumnToCompany < ActiveRecord::Migration[5.2]
   def change
-
     add_reference :companies, :region, foreign_key: true
     add_reference :companies, :user, foreign_key: true
     add_reference :companies, :status
-    add_column :companies, :active, :boolean, foreign_key: true
-
   end
 end

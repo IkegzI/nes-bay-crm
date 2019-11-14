@@ -2,17 +2,20 @@
 <div>
   <%= link_to 'Создать контакт', new_contact_path %>
 </div>
-<div>
+<div class="data br">
 <% @contact.each do |item| %>
-<h4><%= item.name %></h4>
+    <div class="info item">
+    <h4><%= item.name %></h4>
 <!--<p><%#= (names_company_in_str(item.company_ids)) %></p>-->
 <p><%= item.position%></p>
 <p><%= item.phone%></p>
-    <div class="link action">
+    <div class="link action bottom">
       <%= link_to 'Подробнее', contact_path(item), class: "link item" %>
       <%= link_to 'Изменить', edit_contact_path(item), class: "link item" %>
       <%= link_to 'Удалить', contact_path(item), method: 'DELETE', class: "link item" %>
     </div>
+    </div>
+
 <% end %>
 </div>
 

@@ -1,27 +1,30 @@
-<h1>Изменение сведений о <%= @company.name %></h1>
+<div class="data">
+  <div class="info item">
 
-<%= form_for :company, url: edit_company_path(@company), class: 'form' do |f| %>
-	
-	<div>
-  <p>
-    <%= f.label 'Имя компании' %>
-    <%= f.text_field :name, value: @company.name, class: 'editor text_field', id: :name %>
-  </p>
 
-  <p>
-    <%= f.label 'Телефон' %>
-    <%= f.text_field :phone, value: @company.phone, class: 'editor text_field', id: :phone %>
-  </p>
+<h3>Изменение сведений компании <br> <%= @company.name %></h3>
 
-  <p>
-    <%= f.label 'Адрес' %>
-    <%= f.text_field :address, value: @company.address, class: 'editor text_field', id: :address %>
-  </p>
-    <p>
-      <%= f.label 'Менеджер', class: 'label_field' %>
-      <%= f.select :role_id, options_for_select(user_name_id), value: @user.user_id, class: 'edit select', id: :role %>
-    </p>
- </div>
-  
-  <%= f.submit 'Изменить', class: 'button' %>
+  <%= form_for :company, url: edit_company_path(@company), class: 'form' do |f| %>
+      <p>
+        <%= f.label 'Имя компании' %>
+        <%= f.text_field :name, value: @company.name, class: 'editor text_field', id: :name %>
+      </p>
+
+      <p>
+        <%= f.label 'Телефон' %>
+        <%= f.text_field :phone, value: @company.phone, class: 'editor text_field', id: :phone %>
+      </p>
+
+      <p>
+        <%= f.label 'Адрес' %>
+        <%= f.text_field :address, value: @company.address, class: 'editor text_field', id: :address %>
+      </p>
+      <p>
+        <%= f.label 'Менеджер', class: 'label_field' %>
+        <%= select_tag 'company[user_id]', options_for_select(user_name_id), value: @company.user.id, class: 'edit select', id: :user_id %>
+      </p>
+    <%= f.submit 'Изменить', class: 'button' %>
+    </div>
+
 <% end %>
+</div>

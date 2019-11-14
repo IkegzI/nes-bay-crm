@@ -10,18 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_102030) do
+ActiveRecord::Schema.define(version: 2019_11_13_133031) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.text "address"
     t.string "phone"
+    t.boolean "active"
+    t.string "email"
+    t.string "site"
+    t.string "equipment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "region_id"
     t.integer "user_id"
     t.integer "status_id"
-    t.boolean "active"
     t.index ["region_id"], name: "index_companies_on_region_id"
     t.index ["status_id"], name: "index_companies_on_status_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
@@ -58,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_102030) do
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "phone"
+    t.string "email"
     t.string "position"
     t.date "birthday"
     t.text "comment"
@@ -99,6 +103,24 @@ ActiveRecord::Schema.define(version: 2019_11_12_102030) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "talks", force: :cascade do |t|
+    t.text "text"
+    t.integer "typetalk_id"
+    t.integer "user_id"
+    t.integer "company_id"
+    t.integer "contact_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_talks_on_company_id"
+    t.index ["contact_id"], name: "index_talks_on_contact_id"
+    t.index ["typetalk_id"], name: "index_talks_on_typetalk_id"
+    t.index ["user_id"], name: "index_talks_on_user_id"
+  end
+
+  create_table "typetalks", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

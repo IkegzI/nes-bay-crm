@@ -18,6 +18,12 @@ html {
     background: #312b2a;
     color: #f7f6f0 ;
     text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
 }
 
 a{
@@ -27,11 +33,28 @@ a{
 a:hover {
     color: #730E15;
 }
-h1, h2, h3, h4, h5, h6{
-    margin: 0;
-}
-main{
 
+.data {
+    width: 1240px;
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+}
+.info {
+    padding: 10px 0 0 10px;
+    min-height: 320px;
+    min-width: 370px;
+    max-width: 370px;
+    max-height: 320px;
+    background: #20100E;
+    margin: 10px;
+    border: 3px solid #0F253D;
+    text-align: center;
+}
+
+/*перенос элемента*/
+.br{
+    flex-grow: 3;
 }
 
 

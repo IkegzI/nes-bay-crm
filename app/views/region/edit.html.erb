@@ -1,13 +1,17 @@
-<h1>Изменение сведений о <%= @region.name %></h1>
+<div class="data">
+  <div class="info">
+    <h3>Изменение сведений о регионе <br> <%= @region.name %></h3>
 
-<%= form_for :region, url:  edit_region_path(@region), class: 'form' do |f| %>
-	
-	<div>
-  <p>
-    <%= f.label 'Имя региона' %>
-    <%= f.text_field :name, value: @region.name, class: 'editor text_field', id: :name %>
-  </p>
- </div>
-  
-  <%= f.submit 'Изменить', class: 'button' %>
-<% end %>
+    <%= form_for :region, url: edit_region_path(@region), class: 'form' do |f| %>
+
+      <div>
+        <p>
+          <%= f.label 'Имя региона' %>
+          <%= f.text_field :name, value: @region.name, class: 'editor text_field', id: :name %>
+        </p>
+      </div>
+
+      <%= f.submit 'Изменить', class: 'button' %>
+    <% end %>
+  </div>
+</div>

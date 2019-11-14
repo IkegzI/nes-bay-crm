@@ -4,6 +4,10 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :address
       t.string :phone
+      t.boolean :active
+      t.string :email
+      t.string :site
+      t.string :equipment
 
       t.timestamps
     end

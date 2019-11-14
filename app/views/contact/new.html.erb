@@ -1,8 +1,10 @@
-<h1>Создать компанию</h1>
+<div class="data">
+  <div class="info item">
 <div class="new form">
-<%= form_for :contact, url: '/contact/new' do |f| %>
 
+  <h3>Создать контакт</h3>
 
+  <%= form_for :contact, url: '/contact/new', class: 'contact new' do |f| %>
 
     <%= select_tag('company[id]', options_for_select(companies_name_id), class: 'new select', id: :company) %>
     <p>
@@ -30,6 +32,8 @@
       <%= f.text_field :comment, class: 'new text_field', id: :comment %>
     </p>
 
-  <%= f.submit 'Создать', class: 'button' %>
-<% end %>
+    <%= f.submit 'Создать', class: 'button' %>
+  <% end %>
+</div>
+</div>
 </div>

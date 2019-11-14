@@ -1,24 +1,25 @@
-<h1>Создать компанию</h1>
+<div class="data">
+  <div class="info item">
+    <h1>Создать компанию</h1>
+    <%= form_for :company, url: '/company/new', class: 'new form' do |f| %>
 
-<%= form_for :company, url: '/company/new', class: 'form' do |f| %>
+      <%= select_tag('company[region_id]', options_for_select(regions_name_id), class: 'new select', id: :region) %>
+      <p>
+        <%= f.label 'Имя компании' %><br>
+        <%= f.text_field :name, class: 'new text_field', id: :name %>
+      </p>
 
-  <div>
-    <%= select_tag('company[region_id]', options_for_select(regions_name_id), class: 'new select', id: :region) %>
-    <p>
-      <%= f.label 'Имя компании' %>
-      <%= f.text_field :name, class: 'editor text_field', id: :name %>
-    </p>
+      <p>
+        <%= f.label 'Телефон' %><br>
+        <%= f.text_field :phone, class: 'new text_field', id: :phone %>
+      </p>
 
-    <p>
-      <%= f.label 'Телефон' %>
-      <%= f.text_field :phone, class: 'editor text_field', id: :phone %>
-    </p>
+      <p>
+        <%= f.label 'Адрес' %><br>
+        <%= f.text_field :address, class: 'new text_field', id: :address %>
+      </p>
 
-    <p>
-      <%= f.label 'Адрес' %>
-      <%= f.text_field :address, class: 'editor text_field', id: :address %>
-    </p>
+      <%= f.submit 'Создать', class: 'button' %>
+    <% end %>
   </div>
-
-  <%= f.submit 'Создать', class: 'button' %>
-<% end %>
+</div>

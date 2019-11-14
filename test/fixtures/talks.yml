@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyText
+  typetalk: one
+  user: one
+  company: one
+  contact: one
+
+two:
+  text: MyText
+  typetalk: two
+  user: two
+  company: two
+  contact: two

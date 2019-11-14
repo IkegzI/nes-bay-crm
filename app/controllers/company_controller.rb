@@ -11,8 +11,10 @@ class CompanyController < ApplicationController
   end
 
   def create
+    binding.pry
     company = Company.create(params_company)
     redirect_to company_path(company)
+
   end
 
   def show

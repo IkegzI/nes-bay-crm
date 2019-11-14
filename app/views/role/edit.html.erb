@@ -1,13 +1,17 @@
-<h1>Изменение сведений о <%= @role.name %></h1>
+<div class="data">
+  <div class="info item">
+    <h1>Изменение сведений о <%= @role.name %></h1>
 
-<%= form_for :role, url:  edit_role_path(@role), class: 'form' do |f| %>
+    <%= form_for :role, url: edit_role_path(@role), class: 'form' do |f| %>
 
-  <div>
-    <p>
-      <%= f.label 'Роль' %>
-      <%= f.text_field :name, value: @role.name, class: 'editor text_field', id: :name %>
-    </p>
+      <div>
+        <p>
+          <%= f.label 'Роль' %>
+          <%= f.text_field :name, value: @role.name, class: 'editor text_field', id: :name %>
+        </p>
+      </div>
+
+      <%= f.submit 'Изменить', class: 'button' %>
+    <% end %>
   </div>
-
-  <%= f.submit 'Изменить', class: 'button' %>
-<% end %>
+</div>

@@ -1,14 +1,18 @@
-<h1>Создать регион</h1>
+<div class="data">
+  <div class="info">
+    <h1>Создать регион</h1>
 
-<%= form_for :region, url: '/region/new', class: 'new form' do |f| %>
+    <%= form_for :region, url: '/region/new', class: 'new form' do |f| %>
 
-  <div>
-    <p>
-      <%= f.label 'Название региона', class: 'label_field'%>
-      <%= f.text_field :name, class: 'text_field', id: :name %>
-    </p>
+      <div>
+        <p>
+          <%= f.label 'Название региона', class: 'label_field' %>
+          <%= f.text_field :name, class: 'text_field', id: :name %>
+        </p>
 
+      </div>
+
+      <%= f.submit 'Создать', class: 'button' %>
+    <% end %>
   </div>
-
-  <%= f.submit 'Создать', class: 'button' %>
-<% end %>
+</div>

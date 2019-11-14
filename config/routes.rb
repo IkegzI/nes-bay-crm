@@ -1,24 +1,16 @@
 Rails.application.routes.draw do
-  # root 'region#index'
+  get 'talk' => 'talk#new'
+  post 'talk' => 'talk#create'
   get 'login' => 'session#new'
   post 'login' => 'session#create'
   delete 'logout' => 'session#destroy'
   root 'session#new'
-  # get 'user/create'
-  # get 'user/show'
-  # get 'user/index'
-  # get 'user/destroy'
-  # get 'user/edit'
-  # get 'user/update'
   resources 'user'
   resources 'role'
   resources 'contact'
   resources 'region'
   resources 'company'
 
-
-  # get 'company/create'
-  # get 'company/new' => 'company#new'
   post 'company/new' => 'company#create'
   post 'company/:id/edit' => 'company#update'
 
@@ -33,8 +25,5 @@ Rails.application.routes.draw do
 
   post 'user/new' => 'user#create'
   post 'user/:id/edit' => 'user#update'
-  # get 'company/delete'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  #
 
 end

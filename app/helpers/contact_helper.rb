@@ -11,4 +11,14 @@ module ContactHelper
     company.map{|item| [item.name, item.id]}
   end
 
-end
+  def contact_name_id
+    contact = Contact.all
+    contact.map{|item| [item.name, item.id]}
+  end
+
+  def region_currect_contact(contact)
+    contact.companies.first.region
+  end
+
+
+  end
