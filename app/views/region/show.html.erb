@@ -1,6 +1,7 @@
-<h2>Подробнее о городе</h2>
 
+<div class="data">
 <div class="info item">
+  <h2>Подробнее о городе</h2>
   <h3 class="region"><%= @region.name %></h3>
   <div class="image">
     <img src="#" class="photo" \>
@@ -34,4 +35,5 @@
     </p>
   <% end %>
   <%= link_to "и ещё #{amount_contact(@region.id)}", contact_index_path %>
+</div>
 </div>

@@ -1,31 +1,35 @@
-<h1>Создать роль</h1>
+<div class="data">
+  <div class="info item">
+    <h1>Создать роль</h1>
 
-<div>
-  <%= form_for :user, url:  edit_user_path(@user), class: 'edit form' do |f| %>
+    <div>
+      <%= form_for :user, url: edit_user_path(@user), class: 'edit form' do |f| %>
 
-    <p>
-      <%= f.label 'ФИО', class: 'label_field' %>
-      <%= f.text_field :name, value: @user.name, class: 'text_field', id: :name %>
-    </p>
-    <p>
-      <%= f.label 'Логин', class: 'label_field' %>
-      <%= f.text_field :login, value: @user.login, class: 'text_field', id: :login %>
-    </p>
-    <p>
-      <%= f.label 'Пароль', class: 'label_field' %>
-      <%= f.text_field :pass, class: 'text_field', id: :pass %>
-    </p>
-    <p>
-      <%= f.label 'Регион', class: 'label_field' %>
-      <%= f.select :region_id, options_for_select(regions_name_id), value: @user.region_id, class: 'edit select', id: :region %>
-    </p>
-    <p>
-      <%= f.label 'Роль', class: 'label_field' %>
-      <%= f.select :role_id, options_for_select(role_name_id), value: @user.role_id, class: 'edit select', id: :role %>
-    </p>
+        <p>
+          <%= f.label 'ФИО', class: 'label_field' %>
+          <%= f.text_field :name, value: @user.name, class: 'text_field', id: :name %>
+        </p>
+        <p>
+          <%= f.label 'Логин', class: 'label_field' %>
+          <%= f.text_field :login, value: @user.login, class: 'text_field', id: :login %>
+        </p>
+        <p>
+          <%= f.label 'Пароль', class: 'label_field' %>
+          <%= f.text_field :pass, class: 'text_field', id: :pass %>
+        </p>
+        <p>
+          <%= f.label 'Регион', class: 'label_field' %>
+          <%= f.select :region_id, options_for_select(regions_name_id), value: @user.region_id, class: 'edit select', id: :region %>
+        </p>
+        <p>
+          <%= f.label 'Роль', class: 'label_field' %>
+          <%= f.select :role_id, options_for_select(role_name_id), value: @user.role_id, class: 'edit select', id: :role %>
+        </p>
 
 
-    </div>
+        </div>
 
-    <%= f.submit 'Изменить', class: 'button' %>
-  <% end %>
+        <%= f.submit 'Изменить', class: 'button' %>
+      <% end %>
+      </div>
+</div>
