@@ -1,20 +1,46 @@
-<div class="data">
-  <div class="info item">
+  <div class="info item" id="item">
     <h3><%= @company.name %></h3>
     <%= link_to @company.region.name, region_path(@company.region) %>
     <p><%= @company.phone %></p>
     <p><%= @company.address %></p>
 
-    <%= link_to 'Изменить', edit_company_path(@company), class: "link item" %>
-    <%= link_to 'Удалить', company_path(@company), method: 'DELETE', class: "link item" %>
+    <%= link_to 'Изменить', edit_company_path(@company), class: "link" %>
+    <%= link_to 'Удалить', company_path(@company), method: 'DELETE', class: "link" %>
   </div>
 
 
-  <div class="info link contact">
+  <div class="info link">
     <h3>Контакты</h3>
     <% @company.contacts.each do |contact| %>
-      <p>
+      <p class="print">
         <%= (link_to contact.name, contact_path(contact)) || '' %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="info link">
+    <h3>Инструмент</h3>
+    <% @company.instruments.each do |instrument| %>
+      <p class="print">
+        <%= (link_to instrument.name, "/additionalinfo/instrument/#{instrument.id}") %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="info link">
+    <h3>Сервис</h3>
+    <% @company.services.each do |service| %>
+      <p>
+        <%= (link_to service.name, "/additionalinfo/service/#{service.id}") %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="info link">
+    <h3>Сферы деятельности</h3>
+    <% @company.sphereworks.each do |spherework| %>
+      <p class="print">
+        <%= (link_to spherework.name, "/additionalinfo/spherework/#{spherework.id}") %>
       </p>
     <% end %>
   </div>
@@ -23,7 +49,7 @@
     <h3>
       Менеджер
     </h3>
-    <p>
+    <p class="print">
     <%= link_to @company.user.name, user_path(@company.user) %>
     </p>
   </div>

@@ -14,7 +14,6 @@ class CompanyController < ApplicationController
     binding.pry
     company = Company.create(params_company)
     redirect_to company_path(company)
-
   end
 
   def show
@@ -37,6 +36,14 @@ class CompanyController < ApplicationController
 
   def index
     @company = Company.all
+  end
+
+  def find_per_inst(item)
+    @company = Instrument.find(params_id)
+    render company_index_path
+  end
+
+  def index_filter
   end
 
   private

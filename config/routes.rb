@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'additionalinfo/new'
+  get 'additionalinfo/instrument/(:id)' => 'additionalinfo#instrument'
+  get 'additionalinfo/service/(:id)' => 'additionalinfo#service'
+  get 'additionalinfo/spherework/(:id)' => 'additionalinfo#spherework'
   get 'talk' => 'talk#new'
   post 'talk' => 'talk#create'
   get 'login' => 'session#new'

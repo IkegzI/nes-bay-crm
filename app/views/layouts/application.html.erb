@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Система управления информацией о клиентах</title>
-  <% if logged_in? %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <div class="container menu">
+  <% if logged_in? %>
+<div class="container menu">
       <span class="time"><%= Time.now.strftime("Сегодня %d.%m.%Y, текущее время %M:%H") %></span>
       <%= link_to 'Регионы', region_index_path %>
       <%= link_to 'Компании', company_index_path %>
@@ -31,7 +31,7 @@
 <header>
 
 </header>
-<main>
+<main class="data">
     <%= yield %>
 </main>
 <footer>

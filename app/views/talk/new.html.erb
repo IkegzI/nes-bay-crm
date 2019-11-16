@@ -1,11 +1,10 @@
-<div class="data">
   <div class="info talk">
   <h1>Общение с клиентом</h1>
   <%= form_for :talk, url: talk_path, class: 'new form' do |f| %>
     <p><%= select_tag('talk[company_id]', options_for_select(companies_name_id), class: 'new select', id: :company) %></p>
-    <p><%= select_tag('talk[contact_id]', options_for_select(contact_name_id), class: 'new select', id: :company) %></p>
+    <p><%= select_tag('talk[contact_id]', options_for_select(contact_name_id), class: 'new select', id: :contact) %></p>
     <p><%= select_tag('talk[typetalk_id]', options_for_select(typetalk_name_id), class: 'new select', id: :typetalk) %></p>
-    <p><%= hidden_field_tag('talk[user_id]', current_user, class: 'new select', id: :typetalk) %></p>
+    <p><%= hidden_field_tag('talk[user_id]', current_user, class: 'new select', id: :user) %></p>
     <p>
       <%= f.label 'Результат общения', class: 'new select label_field', class: 'new label', id: :user %>
       <br>
@@ -14,5 +13,6 @@
     <%= f.submit 'Создать', class: 'new button' %>
   <% end %>
 </div>
-<%= render template: new_company_path %>
-</div>
+<%= render template: new_contact_path %>
+  <%= render template: new_company_path %>
+

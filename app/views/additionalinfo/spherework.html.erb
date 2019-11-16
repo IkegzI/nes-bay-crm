@@ -1,0 +1,25 @@
+<h3>Следующие компании работают с материалом "<%= @spherework.name %>"</h3>
+<br>
+<div class="data">
+  <% @company.each_with_index do |item, index| %>
+    <div class="info item" id="<%= item.id %>">
+
+      <h3 class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[1]}" %>"><%= item.name %></h3>
+
+
+      <span class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[2]}" %>"><%= item.address %></span>
+
+      <span class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[3]}" %>"><%= item.phone %></span>
+
+
+      <span class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[4]}" %>"><%= item.region.name || '' %></span>
+
+      <div class="link action">
+        <%= link_to 'Подробнее', company_path(item.id), class: "link item" %>
+        <%= link_to 'Изменить', edit_company_path(item.id), class: "link item" %>
+        <%= link_to 'Удалить', company_path(item.id), method: 'DELETE', class: "link item" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
