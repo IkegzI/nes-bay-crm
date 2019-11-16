@@ -15,11 +15,15 @@
  */
 
 html {
-    background: #312b2a;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #0F253D;
     color: #f7f6f0 ;
     text-decoration: none;
     margin: 0px;
     padding: 0px;
+
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -36,9 +40,12 @@ a:hover {
 
 .data {
     width: 1240px;
+    height: 100%;
+    min-height: 887px;
     display: flex;
     justify-content: center;
     flex-flow: wrap;
+    background: #312b2a;
 }
 .info {
     padding: 10px 0 0 10px;

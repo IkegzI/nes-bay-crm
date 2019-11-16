@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+function showResolution(){
+width=screen.width; // ширина
+height=screen.height; // высота
+    return (width - 269)
+}
