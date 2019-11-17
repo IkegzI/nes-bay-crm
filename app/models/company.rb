@@ -7,6 +7,4 @@ class Company < ApplicationRecord
   belongs_to  :user
   belongs_to :status
   has_many :talks
-  validates :phone, uniqueness: true
-
 end

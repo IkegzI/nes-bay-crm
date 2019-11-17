@@ -4,11 +4,10 @@ class ContactController < ApplicationController
 
   def create
     @contact = Contact.new(params_contact)
-
     if @contact.save
       @contact.companies << company_selected
     end
-    redirect_to action: "index"
+    redirect_to session[:forward_url] || contact_index_path
   end
 
   def index

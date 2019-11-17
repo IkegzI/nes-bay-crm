@@ -10,3 +10,15 @@
   background: #403C39;
   border-color: #B00100;
 }
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+  flax-wrap: wrap;
+  padding: 10px 5px 5px 5px;
+  margin-left: -10px;
+
+}
+.new .select {
+  flex-: 250px;
+}

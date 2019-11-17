@@ -8,12 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <% if logged_in? %>
 <div class="container menu">
-      <span class="time"><%= Time.now.strftime("Сегодня %d.%m.%Y, текущее время %M:%H") %></span>
+      <span class="time"><%= Time.now.strftime("Сегодня %d.%m.%Y, текущее время %H:%M") %></span>
       <%= link_to 'Регионы', region_index_path %>
       <%= link_to 'Компании', company_index_path %>
       <%= link_to 'Контакты', contact_index_path %>
       <%= link_to 'Роли', role_index_path %>
       <%= link_to 'Менеджеры', user_index_path %>
+      <%= link_to 'Сообщение', talk_path %>
 
       <% if logged_in? %>
         <%= link_to 'Профиль', user_path(current_user) %>

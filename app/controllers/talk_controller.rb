@@ -1,7 +1,6 @@
 class TalkController < ApplicationController
 
   def create
-    binding.pry
      talk = Talk.new(params_talk)
       if talk.save!
         redirect_to Company.find(params_talk[:company_id])

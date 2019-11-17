@@ -11,9 +11,15 @@ class CompanyController < ApplicationController
   end
 
   def create
-    binding.pry
     company = Company.create(params_company)
-    redirect_to company_path(company)
+    find_db_params_company.each do |clas|
+      clas.last.each do |item|
+        add_info_companies(company, clas.first, item)
+      end
+    end
+
+
+    redirect_to session[:forward_url] || company_path(company)
   end
 
   def show
@@ -52,10 +58,25 @@ class CompanyController < ApplicationController
     params.require(:id).to_i
   end
 
+  def find_db_params_company
+    param = {}
+    [:instrument, :service, :spherework, :contact].each do |item|
+      param[item] = params.require(:company).require(item) if params.require(:company).include?(item.to_s)
+    end
+   param
+  end
+
 
   def params_company
     param = {}
-    params.require(:company).each { |item| param[item[0].to_sym] = item[1] }
+    [:name, :address, :phone, :equipment,
+     :active, :email, :site,
+     :status_id, :region_id, :user_id].each{|item| param[item] = ''}
+    params.require(:company).permit(param.keys).each do |item|
+      param[item[0].to_sym] = item[1]
+    end
+    param[:active] = param[:active] == '1' ? true : false
+
     return param
   end
 end

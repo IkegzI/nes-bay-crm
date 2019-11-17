@@ -20,5 +20,12 @@ module SessionHelper
     end
   end
 
+  def url_request
+      session[:forward_url] = request.url
+  end
+
+  def url_reset
+    session[:forward_url] = nil
+  end
 
 end

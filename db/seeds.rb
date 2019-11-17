@@ -31,18 +31,24 @@ def random_psn
 end
 
 
+Region.create(name: 'Все регионы')
 Region.create(name: 'Иркутская область')
 Region.create(name: 'Красноярский край')
 
+Role.create(name: "Администратор")
+Role.create(name: "Менеджер")
 Role.create(name: "Директор")
 Role.create(name: "Руководитель подразделения")
-Role.create(name: "Менеджер")
 Role.create(name: "Заточник")
+
+User.create( name: 'admin', login: 'admin', pass: '123',
+            role_id: Role.find_by(name: 'Администратор').id,
+            region_id: Region.find_by(name: 'Все регионы').id)
 
 User.create(name: 'Артур Пирожков', login: 'manager1', pass: '123',
             role_id: Role.all.sample.id,
             region_id: Region.all.sample.id)
-puts
+
 User.create(name: 'Иван Иванов', login: 'manager2', pass: '123',
             role_id: Role.all.sample.id,
             region_id: Region.all.sample.id)
@@ -78,17 +84,30 @@ Spherework.create(name: 'Камень')
 Spherework.create(name: 'Напольные покрытия')
 Spherework.create(name: 'Другое')
 
+Status.create(name: 'Неопределено')
+Status.create(name: 'Прекратил сотрудничество')
 Status.create(name: 'Приоритетный')
 Status.create(name: 'Постоянный')
 Status.create(name: 'Хотим сотрудничать')
 Status.create(name: 'Покупает Редко')
 Status.create(name: 'Перекупщик')
-Status.create(name: 'Прекратил сотрудничество')
 
 Typetalk.create(name: 'Телефон')
 Typetalk.create(name: 'Почта')
 Typetalk.create(name: 'Посещение')
 
+Company.create(
+    name: 'Нет информации',
+    address: 'нет информации',
+    phone: 'нет информации',
+    active: false ,
+    email: '',
+    site: '',
+    equipment: '',
+    region_id: 1,
+    user_id: 1,
+    status_id: 1
+)
 
 100.times do
   region = Region.all.sample.id

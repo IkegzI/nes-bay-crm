@@ -23,7 +23,6 @@ class RoleController < ApplicationController
   def update
     param = params_role
     Role.update(params_id, params_role)
-    #binding.pry
     redirect_to role_path(params_id)
   end
 
