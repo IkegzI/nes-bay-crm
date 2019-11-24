@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_133031) do
+ActiveRecord::Schema.define(version: 2019_11_24_141434) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 2019_11_13_133031) do
     t.integer "region_id"
     t.integer "user_id"
     t.integer "status_id"
+    t.integer "jurface_id"
+    t.integer "equipment_id"
+    t.index ["equipment_id"], name: "index_companies_on_equipment_id"
+    t.index ["jurface_id"], name: "index_companies_on_jurface_id"
     t.index ["region_id"], name: "index_companies_on_region_id"
     t.index ["status_id"], name: "index_companies_on_status_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
@@ -69,10 +73,26 @@ ActiveRecord::Schema.define(version: 2019_11_13_133031) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "equipment", force: :cascade do |t|
+    t.text "name"
+    t.integer "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_equipment_on_company_id"
+  end
+
   create_table "instruments", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "jurfaces", force: :cascade do |t|
+    t.string "name"
+    t.integer "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_jurfaces_on_company_id"
   end
 
   create_table "regions", force: :cascade do |t|

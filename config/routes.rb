@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'equipment/new'
+  get 'equipment/create'
+  get 'equipment/edit'
+  get 'equipment/destroy'
+  get 'jurface/new'
+  get 'jurface/create'
+  get 'jurface/edit'
+  get 'jurface/destroy'
   get 'additionalinfo/new'
   get 'additionalinfo/instrument/(:id)' => 'additionalinfo#instrument'
   get 'additionalinfo/service/(:id)' => 'additionalinfo#service'
@@ -20,6 +28,8 @@ Rails.application.routes.draw do
 
   post 'contact/new' => 'contact#create'
   post 'contact/:id/edit' => 'contact#update'
+  delete '/company/:id/del/link' => 'company#link_destroy'
+  post '/company/:id/add/link' => 'company#link_add'
 
   post 'region/new' => 'region#create'
   post 'region/:id/edit' => 'region#update'

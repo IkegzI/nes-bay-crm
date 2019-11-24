@@ -1,3 +1,4 @@
+<% session[:current_url] = request.url %>
 <%= form_for :company, url: '/company/new', class: 'new form' do |f| %>
 
   <div class="data">
@@ -52,18 +53,12 @@
       <% end %>
     </div>
 
-    <div class="info item">
-      <h3>Прикрепить существующий контакт</h3>
-      <p>
-        <%= select_tag('company[contact][]', options_for_select(contact_name_id), class: 'new select', id: :contact) %>
-      </p>
-      <p>
-        <%= select_tag('company[contact][]', options_for_select(contact_name_id), class: 'new select', id: :contact) %>
-      </p>
-      <p>
-        <%= select_tag('company[contact][]', options_for_select(contact_name_id), class: 'new select', id: :contact) %>
-      </p>
-    </div>
+<!--    <div class="info item">-->
+<!--      <h3>Прикрепить существующий контакт</h3>-->
+<!--      <p>-->
+        <%#= select_tag('company[contact][]', options_for_select(contact_name_id), class: 'new select', id: :contact) %>
+<!--      </p>-->
+<!--    </div>-->
 
     <div class="info item">
       <h3>Статус клиента</h3>
@@ -76,7 +71,6 @@
     </div>
 
 <% end %>
-<%= render template: new_contact_path %>
 </div>
 
 

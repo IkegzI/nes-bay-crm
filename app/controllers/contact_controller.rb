@@ -32,6 +32,10 @@ class ContactController < ApplicationController
     redirect_to action: 'index'
   end
 
+  def link_destroy
+    binding.pry
+  end
+
   private
 
   def params_id

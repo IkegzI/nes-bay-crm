@@ -7,4 +7,6 @@ class Company < ApplicationRecord
   belongs_to  :user
   belongs_to :status
   has_many :talks
+  has_many :equipments
+  has_many :jurfaces
 end

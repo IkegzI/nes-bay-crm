@@ -1,37 +1,38 @@
-
-<div class="info item">
-  <h2>Подробнее о городе</h2>
-  <h3 class="region"><%= @region.name %></h3>
-  <div class="image">
-    <img src="#" class="photo" \>
+<div class="data">
+  <div class="info item">
+    <h2>Подробнее о городе</h2>
+    <h3 class="region"><%= @region.name %></h3>
+    <div class="image">
+      <img src="#" class="photo" \>
+    </div>
+    <%= link_to 'Изменить', edit_region_path(@region), class: "link item" %>
+    <%= link_to 'Удалить', region_path(@region), method: 'DELETE', class: "link item" %>
   </div>
-  <%= link_to 'Изменить', edit_region_path(@region), class: "link item" %>
-  <%= link_to 'Удалить', region_path(@region), method: 'DELETE', class: "link item" %>
-</div>
-<div class="info item">
-  <div class="link company">
-    <%= link_to 'Компании в регионе', company_index_path, class: 'title link none_decor_link' %>
-  </div>
+  <div class="info item">
+    <div class="link company">
+      <%= link_to 'Компании в регионе', company_index_path, class: 'title link none_decor_link' %>
+    </div>
 
-  <div class="link company">
-    <% (sample_company(7)).each do |company| %>
+    <div class="link company">
+      <% (sample_company(7)).each do |company| %>
+        <p>
+          <%= link_to company.name, company_path(company) %>
+        </p>
+      <% end %>
+      <%= link_to "и ещё #{amount_company(@region.id)}", company_index_path %>
+
+    </div>
+  </div>
+  <div class="info item">
+    <div class="link contact">
+      <%= link_to 'Контакты в регионе', company_index_path, class: 'title link none_decor_link' %>
+    </div>
+
+    <% (sample_contact(7)).each do |contact| %>
       <p>
-        <%= link_to company.name, company_path(company) %>
+        <%= link_to contact.name, company_path(contact) %>
       </p>
     <% end %>
-    <%= link_to "и ещё #{amount_company(@region.id)}", company_index_path %>
-
+    <%= link_to "и ещё #{amount_contact(@region.id)}", contact_index_path %>
   </div>
-</div>
-<div class="info item">
-  <div class="link contact">
-    <%= link_to 'Контакты в регионе', company_index_path, class: 'title link none_decor_link' %>
-  </div>
-
-  <% (sample_contact(7)).each do |contact| %>
-    <p>
-      <%= link_to contact.name, company_path(contact) %>
-    </p>
-  <% end %>
-  <%= link_to "и ещё #{amount_contact(@region.id)}", contact_index_path %>
 </div>
