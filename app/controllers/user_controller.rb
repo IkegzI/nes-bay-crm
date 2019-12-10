@@ -11,7 +11,6 @@ class UserController < ApplicationController
   end
 
   def index
-    binding.pry
     @user = User.where(region_id: current_region)
   end
 

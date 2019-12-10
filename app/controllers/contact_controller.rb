@@ -33,7 +33,6 @@ class ContactController < ApplicationController
   end
 
   def link_destroy
-    binding.pry
   end
 
   private

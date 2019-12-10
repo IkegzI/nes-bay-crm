@@ -1,64 +1,35 @@
 module CompanyHelper
 
-  def regions_name_id
-    region = Region.all
-    region.map { |item| [item.name, item.id] }
-  end
-
-  def regions_name_id_with_filter(company)
-    company = Company.find(company.id).regions.map { |item| [item.name, item.id] }
-    region = Region.all.map { |item| [item.name, item.id] }
-    region - company
-  end
-
-  def statuses_name_id
-    status = Status.all
-    status.map { |item| [item.name, item.id] }
-  end
-
-  def instruments_name_id
-    instruments = Instrument.all
-    instruments.map { |item| [item.name, item.id] }
-  end
-
-  def instruments_name_id_with_filter(company)
-    company = Company.find(company.id).instruments.map { |item| [item.name, item.id] }
-    instruments = Instrument.all.map { |item| [item.name, item.id] }
-    instruments - company
-  end
-
-  def contact_name_id
-    contact = Contact.all
-    contact.map{|item| [item.name, item.id]}
-  end
-
-  def contact_name_id_with_filter(company)
-    company = Company.find(company.id).contacts.map { |item| [item.name, item.id] }
-    contact = Contact.all.map { |item| [item.name, item.id] }
-    contact - company
-  end
-
-  def service_name_id
-    service = Service.all
-    service.map { |item| [item.name, item.id] }
-  end
-
-  def service_name_id_with_filter(company)
-    company = Company.find(company.id).services.map { |item| [item.name, item.id] }
-    service = Service.all.map { |item| [item.name, item.id] }
-    service - company
-  end
-
-  def spherework_name_id
-    spherework = Spherework.all
-    spherework.map { |item| [item.name, item.id] }
-  end
-
-  def spherework_name_id_with_filter(company)
-    company = Company.find(company.id).sphereworks.map { |item| [item.name, item.id] }
-    spherework = Spherework.all.map { |item| [item.name, item.id] }
-    spherework - company
-  end
+  # def regions_name_id_with_filter(company)
+  #   company = Company.find(company.id).regions.map { |item| [item.name, item.id] }
+  #   region = Region.all.map { |item| [item.name, item.id] }
+  #   region - company
+  # end
+  #
+  #
+  # def instruments_name_id_with_filter(company)
+  #   company = Company.find(company.id).instruments.map { |item| [item.name, item.id] }
+  #   instruments = Instrument.all.map { |item| [item.name, item.id] }
+  #   instruments - company
+  # end
+  #
+  # def contact_name_id_with_filter(company)
+  #   company = Company.find(company.id).contacts.map { |item| [item.name, item.id] }
+  #   contact = Contact.all.map { |item| [item.name, item.id] }
+  #   contact - company
+  # end
+  #
+  # def service_name_id_with_filter(company)
+  #   company = Company.find(company.id).services.map { |item| [item.name, item.id] }
+  #   service = Service.all.map { |item| [item.name, item.id] }
+  #   service - company
+  # end
+  #
+  # def spherework_name_id_with_filter(company)
+  #   company = Company.find(company.id).sphereworks.map { |item| [item.name, item.id] }
+  #   spherework = Spherework.all.map { |item| [item.name, item.id] }
+  #   spherework - company
+  # end
 
   def names_contacts_in_str(ids_contacts)
     contacts = ''
@@ -67,11 +38,6 @@ module CompanyHelper
           (Contact.find(item)).name + ', '
     end
     contacts.chomp(', ')
-  end
-
-  def user_name_id
-    user = User.all
-    user.map { |item| [item.name, item.id] }
   end
 
   def add_info_companies(company, clas, item)
