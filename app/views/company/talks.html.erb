@@ -1,0 +1,24 @@
+  <h2>
+    История общения с компанией
+  </h2>
+</div>
+<div class="data">
+  <div class="info item" id="item">
+  <h3><%= @company.name %></h3>
+  <%= link_to @company.region.name, region_path(@company.region) %>
+  <p><%= @company.phone %></p>
+  <p><%= @company.address %></p>
+
+  <%= link_to 'Изменить', edit_company_path(@company), class: "link" %>
+  <%= link_to 'Удалить', company_path(@company), method: 'DELETE', class: "link" %>
+</div>
+
+<% @talk.each do |item| %>
+  <div class="info link">
+    <h3><%= item.created_at.strftime("%H:%M %d.%m.%Y") %></h3>
+    <p class="print"><%= item.typetalk.name %></p>
+    <p class="print"><%= item.contact.name %></p>
+    <p class="print"><%= item.text %></p>
+  </div>
+  <% end %>
+</div>

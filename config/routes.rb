@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources 'contact'
   resources 'region'
   resources 'company'
+  get 'company/:id/talks' => 'company#talks'
 
   post 'company/new' => 'company#create'
   post 'company/:id/edit' => 'company#update'

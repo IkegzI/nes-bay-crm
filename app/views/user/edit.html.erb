@@ -1,3 +1,4 @@
+<div class="data br">
   <div class="info item">
     <h1>Создать роль</h1>
 
@@ -24,10 +25,9 @@
           <%= f.label 'Роль', class: 'label_field' %>
           <%= f.select :role_id, options_for_select(role_name_id), value: @user.role_id, class: 'edit select', id: :role %>
         </p>
-
-
         </div>
 
         <%= f.submit 'Изменить', class: 'button' %>
       <% end %>
       </div>
+</div>

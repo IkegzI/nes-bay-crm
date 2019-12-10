@@ -8,6 +8,8 @@ class SessionController < ApplicationController
     if user && user.pass == params_session[:pass]
       log_in(user)
       redirect_to user
+    else
+      redirect_to root_path
     end
   end
 

@@ -88,6 +88,11 @@ class CompanyController < ApplicationController
     redirect_to edit_company_path(company_id)
   end
 
+  def talks
+    @company = Company.find(params_id)
+    @talk = @company.talks
+  end
+
   private
 
   def params_link

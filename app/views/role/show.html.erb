@@ -1,8 +1,9 @@
 <h2>Подробнее о городе</h2>
+<div class="data br">
+  <div>
+    <p class="region"><%= @role.name %></p>
 
-<div>
-  <p class="region"><%= @role.name %></p>
-
-  <%= link_to 'Изменить', edit_role_path(@role), class: "link item" %>
-  <%= link_to 'Удалить', role_path(@role), method: 'DELETE', class: "link item" %>
+    <%= link_to 'Изменить', edit_role_path(@role), class: "link item" %>
+    <%= link_to 'Удалить', role_path(@role), method: 'DELETE', class: "link item" %>
+  </div>
 </div>

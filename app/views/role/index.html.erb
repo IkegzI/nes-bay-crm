@@ -5,12 +5,12 @@
 <div class="data">
   <% @role.each do |item| %>
     <div class="info item">
-    <p><%= item.name %></p>
-    <div class="link action">
-      <%= link_to 'Подробнее', role_path(item), class: "link item" %>
-      <%= link_to 'Изменить', edit_role_path(item), class: "link item" %>
-      <%= link_to 'Удалить', role_path(item), method: 'DELETE', class: "link item" %>
-    </div>
+      <p><%= item.name %></p>
+      <div class="link action">
+        <%= link_to 'Подробнее', role_path(item), class: "link item" %>
+        <%= link_to 'Изменить', edit_role_path(item), class: "link item" %>
+        <%= link_to 'Удалить', role_path(item), method: 'DELETE', class: "link item" %>
+      </div>
     </div>
   <% end %>
 </div>
