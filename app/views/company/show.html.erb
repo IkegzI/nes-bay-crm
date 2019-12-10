@@ -1,66 +1,69 @@
 <div class="data">
   <div class="info item" id="item">
-  <h3><%= @company.name %></h3>
-  <%= link_to @company.region.name, region_path(@company.region) %>
-  <p><%= @company.phone %></p>
-  <p><%= @company.address %></p>
+    <h3><%= @company.name %></h3>
+    <%= link_to @company.region.name, region_path(@company.region) %>
+    <p><%= @company.phone %></p>
+    <p><%= @company.address %></p>
 
-  <%= link_to 'Изменить', edit_company_path(@company), class: "link" %>
-  <%= link_to 'Удалить', company_path(@company), method: 'DELETE', class: "link" %>
-</div>
-
-  <div class="info link">
-    <h3>Последнее общение</h3>
-    <p class="print"><%= @company.talks.last.typetalk.name %></p>
-    <p class="print"><%= @company.talks.last.contact.name %></p>
-    <p class="print"><%= @company.talks.last.text %></p>
-    <%= link_to_if @company.talks.size > 1, 'Всё общение', "#{@company.id}/talks" %>
+    <%= link_to 'Изменить', edit_company_path(@company), class: "link" %>
+    <%= link_to 'Удалить', company_path(@company), method: 'DELETE', class: "link" %>
   </div>
 
-<div class="info link">
-  <h3>Контакты</h3>
-  <% @company.contacts.each do |contact| %>
+  <div class="info link">
+    <h3>Итоги общения</h3>
+    <% unless @talk == [] %>
+      <p class="print"><%= @talk.last.typetalk.name %></p>
+      <p class="print"><%= @talk.last.contact.name %></p>
+      <p class="print"><%= @talk.last.text %></p>
+      <p><%= link_to_if @talk.size > 1, 'История общения', "#{@company.id}/talks" %></p>
+    <% end %>
+    <p><%= link_to 'Записать итоги общения', talk_path %></p>
+  </div>
+
+  <div class="info link">
+    <h3>Контакты</h3>
+    <% @company.contacts.each do |contact| %>
+      <p class="print">
+        <%= (link_to contact.name, contact_path(contact)) || '' %>
+      </p>
+    <% end %>
+    <%= link_to 'Добавить', new_contact_path %>
+  </div>
+
+  <div class="info link">
+    <h3>Инструмент</h3>
+    <% @company.instruments.each do |instrument| %>
+      <p class="print">
+        <%= (link_to instrument.name, "/additionalinfo/instrument/#{instrument.id}") %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="info link">
+    <h3>Сервис</h3>
+    <% @company.services.each do |service| %>
+      <p>
+        <%= (link_to service.name, "/additionalinfo/service/#{service.id}") %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="info link">
+    <h3>Сферы деятельности</h3>
+    <% @company.sphereworks.each do |spherework| %>
+      <p class="print">
+        <%= (link_to spherework.name, "/additionalinfo/spherework/#{spherework.id}") %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="info user">
+    <h3>
+      Менеджер
+    </h3>
     <p class="print">
-      <%= (link_to contact.name, contact_path(contact)) || '' %>
+      <%= link_to @company.user.name, user_path(@company.user) %>
     </p>
-  <% end %>
-  <%= link_to 'Добавить', new_contact_path %>
-</div>
-
-<div class="info link">
-  <h3>Инструмент</h3>
-  <% @company.instruments.each do |instrument| %>
-    <p class="print">
-      <%= (link_to instrument.name, "/additionalinfo/instrument/#{instrument.id}") %>
-    </p>
-  <% end %>
-</div>
-
-<div class="info link">
-  <h3>Сервис</h3>
-  <% @company.services.each do |service| %>
-    <p>
-      <%= (link_to service.name, "/additionalinfo/service/#{service.id}") %>
-    </p>
-  <% end %>
-</div>
-
-<div class="info link">
-  <h3>Сферы деятельности</h3>
-  <% @company.sphereworks.each do |spherework| %>
-    <p class="print">
-      <%= (link_to spherework.name, "/additionalinfo/spherework/#{spherework.id}") %>
-    </p>
-  <% end %>
-</div>
-
-<div class="info user">
-  <h3>
-    Менеджер
-  </h3>
-  <p class="print">
-    <%= link_to @company.user.name, user_path(@company.user) %>
-  </p>
-</div>
+  </div>
 
 </div>

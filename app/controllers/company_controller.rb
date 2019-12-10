@@ -24,6 +24,7 @@ class CompanyController < ApplicationController
 
   def show
     @company = Company.find(params_id)
+    @talk = @company.talks
   end
 
   def edit
@@ -41,7 +42,7 @@ class CompanyController < ApplicationController
   end
 
   def index
-    @company = Company.all
+    @company = Company.where(region_id: current_region)
   end
 
   def find_per_inst(item)

@@ -11,7 +11,8 @@ class UserController < ApplicationController
   end
 
   def index
-    @user = User.all
+    binding.pry
+    @user = User.where(region_id: current_region)
   end
 
   def destroy
