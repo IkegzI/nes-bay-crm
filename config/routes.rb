@@ -35,4 +35,7 @@ Rails.application.routes.draw do
   post 'user/new' => 'user#create'
   post 'user/:id/edit' => 'user#update'
 
+  post 'jurface/new' => 'jurface#create'
+  post 'jurface/:id/edit' => 'jurface#update'
+
 end

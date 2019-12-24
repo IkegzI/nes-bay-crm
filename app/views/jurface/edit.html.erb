@@ -1,2 +1,27 @@
-<h1>Jurface#edit</h1>
-<p>Find me in app/views/jurface/edit.html.erb</p>
+<div class="info">
+  <h1>Создать регион</h1>
+
+  <%= form_for :jurface, url: edit_jurface_url(@jurface.id), class: 'new form' do |f| %>
+
+    <div>
+      <p>
+        <%= f.label 'Название', class: 'label_field' %>
+        <%= f.text_field :name, class: 'text_field', id: :name, value: @jurface.name %>
+      </p>
+      <p>
+        <%= f.label 'ИНН', class: 'label_field' %>
+        <%= f.text_field :inn, class: 'text_field', id: :inn, value: @jurface.inn %>
+      </p>
+      <p>
+        <%= f.label 'Расчётный счёт', class: 'label_field' %>
+        <%= f.text_field :acc, class: 'text_field', id: :acc, value: @jurface.acc %>
+      </p>
+      <p>
+        <%= select_tag('jurface[company_id]', options_for_select(companies_name_id, @jurface.company_id), class: 'new select', id: :company_id) %>
+      </p>
+      <p><%= hidden_field_tag('jurface[id]', current_user, class: 'new select', id: :user, value: @jurface.id) %></p>
+    </div>
+
+    <%= f.submit 'Изменить', class: 'button' %>
+  <% end %>
+</div>

@@ -75,6 +75,14 @@ ActiveRecord::Schema.define(version: 2019_11_24_141434) do
 
   create_table "equipment", force: :cascade do |t|
     t.text "name"
+    t.string "manufacturer"
+    t.string "speed"
+    t.string "shaft"
+    t.string "type"
+    t.string "feedrate"
+    t.boolean "cnc"
+    t.string "comment"
+    t.string "photo"
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -88,7 +96,9 @@ ActiveRecord::Schema.define(version: 2019_11_24_141434) do
   end
 
   create_table "jurfaces", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
+    t.string "inn"
+    t.string "acc"
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

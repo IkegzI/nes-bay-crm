@@ -1,2 +1,24 @@
-<h1>Jurface#new</h1>
-<p>Find me in app/views/jurface/new.html.erb</p>
+<div class="info">
+  <h1>Создать регион</h1>
+
+  <%= form_for :jurface, url: '/jurface/new', class: 'new form' do |f| %>
+    <div>
+      <p>
+        <%= f.label 'Название', class: 'label_field' %>
+        <%= f.text_field :name, class: 'text_field', id: :name %>
+      </p>
+         <p>
+        <%= f.label 'ИНН', class: 'label_field' %>
+        <%= f.text_field :inn, class: 'text_field', id: :inn %>
+      </p>
+         <p>
+        <%= f.label 'Расчётный счёт', class: 'label_field' %>
+        <%= f.text_field :acc, class: 'text_field', id: :acc %>
+      </p>
+      <p>
+        <%= select_tag('jurface[company_id]', options_for_select(companies_name_id), class: 'new select', id: :company_id) %>
+      </p>
+    </div>
+    <%= f.submit 'Создать', class: 'button' %>
+  <% end %>
+</div>
