@@ -66,4 +66,15 @@
     </p>
   </div>
 
+  <div class="info user">
+    <h3>
+      ЮрЛица
+    </h3>
+    <% @company.jurfaces.each do |jurface| %>
+      <p class="print">
+      <%= link_to jurface.name, edit_jurface_path(jurface.id) %>
+    </p>
+      <% end %>
+  </div>
+
 </div>

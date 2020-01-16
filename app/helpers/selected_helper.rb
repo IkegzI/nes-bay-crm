@@ -81,6 +81,12 @@ module SelectedHelper
     spherework - company
   end
 
+  def jurface_name_id_with_filter(company)
+    company = Company.find(company.id).jurfaces.map { |item| [item.name, item.id] }
+    jurface = Jurface.all.map { |item| [item.name, item.id] }
+    jurface - company
+  end
+
   def names_company_in_str(ids_company)
     companies = ''
     ids_company.each{ |item| companies = companies + (Company.find(item)).name + ', '}

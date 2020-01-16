@@ -5,6 +5,7 @@ class JurfaceController < ApplicationController
   def create
     jurface = Jurface.new(params_jurface)
     jurface.save
+    redirect_to edit_company_path(params_jurface[:company_id])
   end
 
   def edit
