@@ -92,6 +92,12 @@ module SelectedHelper
     jurface - company
   end
 
+  def machine_name_id_with_filter(company)
+    company = Company.find(company.id).machines.map { |item| [item.name, item.id] }
+    machine = Machine.all.map { |item| [item.name, item.id] }
+    machine - company
+  end
+
   def names_company_in_str(ids_company)
     companies = ''
     ids_company.each{ |item| companies = companies + (Company.find(item)).name + ', '}

@@ -4,6 +4,11 @@ class MachineController < ApplicationController
     @machine = Machine.find(params_id)
   end
 
+  def edit
+    @machine = Machine.find(params_id)
+  end
+
+
   def create
     machine = Machine.new(params_machine)
     machine.save

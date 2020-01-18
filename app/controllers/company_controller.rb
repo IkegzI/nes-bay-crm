@@ -67,6 +67,8 @@ class CompanyController < ApplicationController
       Linkservice.delete(Linkservice.where(company_id: company_id, service_id: link_id).ids)
     when obj == 'Spherework'
       Linkspherework.delete(Linkspherework.where(company_id: company_id, spherework_id: link_id).ids)
+    when obj == 'Machine'
+      Linkmachine.delete(Linkmachine.where(company_id: company_id, machine_id: link_id).ids)
     when obj == 'Jurface'
       Company.find(company_id).jurfaces.delete(link_id)
     end
@@ -74,7 +76,6 @@ class CompanyController < ApplicationController
   end
 
   def link_add
-    # param = params_link
     link_id = params_link[:id]
     obj = params_link[:what]
     company_id = params_id
@@ -87,6 +88,8 @@ class CompanyController < ApplicationController
       Company.find(company_id).services << Service.find(link_id)
     when obj == 'Spherework'
       Company.find(company_id).sphereworks << Spherework.find(link_id)
+    when obj == 'Machine'
+      Company.find(company_id).machines << Machine.find(link_id)
     when obj == 'Jurface'
       Company.find(company_id).jurfaces << Jurface.find(link_id)
     end
