@@ -6,25 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
 def random_str
-  words  = ('а'..'я').map{ |item| item }
+  words = ('а'..'я').map { |item| item }
   words << ' '
   word = ''
-  rand(2..10).times {|i| word += words[rand(words.size)]}
+  rand(2..10).times { |i| word += words[rand(words.size)] }
   word
 end
+
 def random_text
-  words  = ('а'..'я').map{ |item| item}
+  words = ('а'..'я').map { |item| item }
   words << ' '
   word = ''
-  rand(60..255).times {|i| word += words[rand(words.size)]}
+  rand(60..255).times { |i| word += words[rand(words.size)] }
   word
 end
+
 def random_num(cycles)
-  words  = ('0'..'9').map{ |item| item}
+  words = ('0'..'9').map { |item| item }
   word = ''
-  cycles.times {|i| word += words[rand(words.size)]}
+  cycles.times { |i| word += words[rand(words.size)] }
   word
 end
+
 def random_psn
   words = ['Менеджер', 'Директор', 'Водитель', 'Снабженец']
   words[rand(words.size)]
@@ -41,7 +44,7 @@ Role.create(name: "Директор")
 Role.create(name: "Руководитель подразделения")
 Role.create(name: "Заточник")
 
-User.create( name: 'admin', login: 'admin', pass: '123',
+User.create(name: 'admin', login: 'admin', pass: '123',
             role_id: Role.find_by(name: 'Администратор').id,
             region_id: Region.find_by(name: 'Все регионы').id)
 
@@ -92,6 +95,7 @@ Status.create(name: 'Хотим сотрудничать')
 Status.create(name: 'Покупает Редко')
 Status.create(name: 'Перекупщик')
 
+
 Typetalk.create(name: 'Телефон')
 Typetalk.create(name: 'Почта')
 Typetalk.create(name: 'Посещение')
@@ -100,7 +104,7 @@ Company.create(
     name: 'Нет информации',
     address: 'нет информации',
     phone: 'нет информации',
-    active: false ,
+    active: false,
     email: '',
     site: '',
     equipment: '',
@@ -113,9 +117,9 @@ Company.create(
   region = Region.all.sample.id
   company = Company.new(
       name: 'Компания ' + random_str,
-      address: 'ул. ' + random_str + ' ДОМ ' + random_num(rand(1..2)) ,
+      address: 'ул. ' + random_str + ' ДОМ ' + random_num(rand(1..2)),
       phone: '+7' + random_num(10),
-      active: rand(10)> 5 ? true: false,
+      active: rand(10) > 5 ? true : false,
       email: random_str + "@#{rand(321312)}.ru",
       site: random_str + '.ru',
       equipment: 'Станок' + random_str,
@@ -123,14 +127,12 @@ Company.create(
       user_id: User.where(region_id: region).sample.id,
       status_id: Status.all.sample.id
   )
-  puts 'Создание компании ' + (company.save).to_s
-  # company.status =
-
+  rand(1..Instrument.all.size).times { |rnd| company.instruments << Instrument.all.sample }
+  rand(1..Service.all.size).times { |rnd| company.services << Service.all.sample }
+  rand(1..Spherework.all.size).times { |rnd| company.sphereworks << Spherework.all.sample }
   company.save
+  puts 'Создание компании ' + (company.save).to_s
 
-  rand(1..Instrument.all.size).times{ |rnd| company.instruments << Instrument.all.sample}
-  rand(1..Service.all.size).times{ |rnd| company.services << Service.all.sample}
-  rand(1..Spherework.all.size).times{ |rnd| company.sphereworks << Spherework.all.sample}
 end
 
 200.times do |item|
@@ -147,4 +149,10 @@ end
   company.contacts << contact
   puts 'Создание контакта ' + (contact.save).to_s
   contact.save
+end
+
+100.times do
+  jurface = Jurface.create(name: "ООО '#{random_str.capitalize}'", inn: random_num(10), acc: random_num(20), company_id: Company.all.sample.id)
+  puts 'Создание юр.лица ' + (jurface.save).to_s
+  jurface.save
 end

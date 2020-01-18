@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources 'role'
   resources 'contact'
   resources 'region'
+  resources 'machine'
   resources 'company'
   get 'company/:id/talks' => 'company#talks'
 
@@ -38,4 +39,6 @@ Rails.application.routes.draw do
   post 'jurface/new' => 'jurface#create'
   post 'jurface/:id/edit' => 'jurface#update'
 
+  post 'machine/new' => 'machine#create'
+  post 'machine/:id/edit' => 'machine#update'
 end

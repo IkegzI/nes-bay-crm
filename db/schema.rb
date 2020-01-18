@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_18_094251) do
+ActiveRecord::Schema.define(version: 2020_01_18_130224) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(version: 2020_01_18_094251) do
     t.integer "instrument_id"
     t.index ["company_id"], name: "index_companies_instruments_on_company_id"
     t.index ["instrument_id"], name: "index_companies_instruments_on_instrument_id"
+  end
+
+  create_table "companies_machines", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "machine_id"
+    t.index ["company_id"], name: "index_companies_machines_on_company_id"
+    t.index ["machine_id"], name: "index_companies_machines_on_machine_id"
   end
 
   create_table "companies_services", force: :cascade do |t|
