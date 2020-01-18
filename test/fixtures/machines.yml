@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type_machine: one
+  instrument: one
+  landing1: MyString
+  landing2: MyString
+  turnovers1: 1
+  turnovers2: 1
+
+two:
+  name: MyString
+  type_machine: two
+  instrument: two
+  landing1: MyString
+  landing2: MyString
+  turnovers1: 1
+  turnovers2: 1

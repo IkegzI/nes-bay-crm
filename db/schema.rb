@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_141434) do
+ActiveRecord::Schema.define(version: 2020_01_18_093248) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -147,6 +147,12 @@ ActiveRecord::Schema.define(version: 2019_11_24_141434) do
     t.index ["contact_id"], name: "index_talks_on_contact_id"
     t.index ["typetalk_id"], name: "index_talks_on_typetalk_id"
     t.index ["user_id"], name: "index_talks_on_user_id"
+  end
+
+  create_table "type_machines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "typetalks", force: :cascade do |t|
