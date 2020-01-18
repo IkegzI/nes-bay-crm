@@ -1,2 +1,3 @@
 module MachineHelper
+
 end

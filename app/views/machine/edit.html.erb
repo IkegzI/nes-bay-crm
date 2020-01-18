@@ -1,0 +1,53 @@
+<div class="info">
+  <h1>Изменить станок</h1>
+
+  <%= form_for :machine, url: '/machine/new', class: 'new form' do |f| %>
+    <div>
+      <p>
+        <%= f.label 'Название', class: 'label_field' %>
+        <%= f.text_field :name, class: 'text_field', id: :name %>
+      </p>
+      <p>
+        <%= f.label 'Тип станка', class: 'label_field' %>
+        <%= select_tag(
+                        'jurface[company_id]',
+                        options_for_select(
+                                            companies_name_id,
+                                            @machine.company_id
+                                          ),
+                        class: 'new select',
+                        id: :company_id
+                      ) %>
+      </p>
+      <p>
+        <%= f.label 'Тип инструмента', class: 'label_field' %>
+        <%= select_tag(
+                        'jurface[company_id]',
+                        options_for_select(
+                                            companies_name_id,
+                                            @machine.company_id
+                                           ),
+                        class: 'new select',
+                        id: :company_id
+                      ) %>
+      </p>
+      <p>
+        <%= f.label 'Диаметр 1', class: 'label_field' %>
+        <%= f.text_field :landing1, class: 'text_field', id: :landing1 %>
+      </p>
+      <p>
+        <%= f.label 'Диаметр 2', class: 'label_field' %>
+        <%= f.text_field :landing2, class: 'text_field', id: :landing2 %>
+      </p>
+      <p>
+        <%= f.label 'Обороты 1', class: 'label_field' %>
+        <%= f.text_field :turnovers1, class: 'text_field', id: :turnovers1 %>
+      </p>
+      <p>
+        <%= f.label 'Обороты 2', class: 'label_field' %>
+        <%= f.text_field :turnovers2, class: 'text_field', id: :turnovers2 %>
+      </p>
+    </div>
+    <%= f.submit 'Создать', class: 'button' %>
+  <% end %>
+</div>
