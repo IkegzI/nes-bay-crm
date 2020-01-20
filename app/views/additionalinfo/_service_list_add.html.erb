@@ -1,0 +1,7 @@
+<h3>Сервис</h3>
+<% service_name_id.each do |item| %>
+  <p class="print">
+    <%= label_tag item.first %>
+    <%= check_box_tag "company[service][]", item.last %>
+  </p>
+<% end %>

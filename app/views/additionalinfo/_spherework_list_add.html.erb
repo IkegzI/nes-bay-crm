@@ -1,0 +1,7 @@
+<h3>Сфера</h3>
+<% spherework_name_id.each do |item| %>
+  <p class="print">
+    <%= label_tag item.first %>
+    <%= check_box_tag "company[spherework][]", item.last %>
+  </p>
+<% end %>

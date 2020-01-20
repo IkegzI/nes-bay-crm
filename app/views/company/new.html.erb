@@ -30,44 +30,18 @@
       </p>
       <%= hidden_field_tag('company[user_id]', current_user, class: 'new select', id: :user) %>
       <%= f.submit 'Создать', class: 'button' %>
-
     </div>
 
     <div class="info item">
-      <h3>Инструмент</h3>
-      <% instruments_name_id.each do |item| %>
-        <p class="print">
-          <%= f.label item.first %>
-          <%= check_box_tag "company[instrument][]", item.last %>
-        </p>
-      <% end %>
+      <%= render 'additionalinfo/instrument_list_add' %>
     </div>
 
     <div class="info item">
-      <h3>Сервис</h3>
-      <% service_name_id.each do |item| %>
-        <p class="print">
-          <%= label_tag item.first %>
-          <%= check_box_tag "company[service][]", item.last %>
-        </p>
-      <% end %>
+      <%= render 'additionalinfo/service_list_add' %>
     </div>
 
-<!--    <div class="info item">-->
-<!--      <h3>Прикрепить существующий контакт</h3>-->
-<!--      <p>-->
-        <%#= select_tag('company[contact][]', options_for_select(contact_name_id), class: 'new select', id: :contact) %>
-<!--      </p>-->
-<!--    </div>-->
-
     <div class="info item">
-      <h3>Статус клиента</h3>
-      <% spherework_name_id.each do |item| %>
-        <p class="print">
-          <%= label_tag item.first %>
-          <%= check_box_tag "company[spherework][]", item.last %>
-        </p>
-      <% end %>
+      <%= render 'additionalinfo/spherework_list_add' %>
     </div>
 
 <% end %>
