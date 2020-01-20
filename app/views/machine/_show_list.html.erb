@@ -1,0 +1,6 @@
+<h3>Оборудование</h3>
+<% @company.machines.each do |machine| %>
+  <p>
+    <%= (link_to machine.name, "/machine/#{machine.id}") %>
+  </p>
+<% end %>

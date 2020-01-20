@@ -1,0 +1,6 @@
+<h3>Инструмент</h3>
+<% @company.instruments.each do |instrument| %>
+  <p class="print">
+    <%= (link_to instrument.name, "/additionalinfo/instrument/#{instrument.id}") %>
+  </p>
+<% end %>

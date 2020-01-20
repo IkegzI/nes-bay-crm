@@ -1,182 +1,34 @@
 <div class="data">
   <div class="info item" id="#item">
-    <h3>Изменение сведений компании <br> <%= @company.name %></h3>
-    <%= form_for :company, remote: true, url: edit_company_path(@company) do |f| %>
-      <p>
-        <%= f.label 'Имя компании' %>
-        <%= f.text_field :name, value: @company.name, class: 'editor text_field', id: :name %>
-      </p>
-
-      <p>
-        <%= f.label 'Телефон' %>
-        <%= f.text_field :phone, value: @company.phone, class: 'editor text_field', id: :phone %>
-      </p>
-
-      <p>
-        <%= f.label 'Адрес' %>
-        <%= f.text_field :address, value: @company.address, class: 'editor text_field', id: :address %>
-      </p>
-      <p>
-        <%= f.label 'Менеджер', class: 'label_field' %>
-        <%= f.select :user_id, options_for_select(user_name_id, @company.user.id), class: 'edit select', id: :user_id %>
-      </p>
-
-      <%= f.submit 'Изменить', class: 'button' %>
-    <% end %>
+    <%= render 'company/edit_info' %>
   </div>
   <div class="info link">
-    <h3>Контакты</h3>
-    <% @company.contacts.each do |contact| %>
-      <div>
-        <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
-          <p class="print">
-            <%= link_to contact.name, contact_path(contact) %>
-            <%= hidden_field_tag 'link[what]', "Contact" %>
-            <%= hidden_field_tag 'link[id]', contact.id %>
-            <%= f.submit 'убрать', class: 'new button link_destroy' %>
-          </p>
-        <% end %>
-      </div>
-    <% end %>
-    <div>
-      <% unless contact_name_id_with_filter(@company) == [] %>
-        <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
-          <%= select_tag('link[id]', options_for_select(contact_name_id_with_filter(@company)), class: 'new select', id: :contact) %>
-          <%= hidden_field_tag 'link[what]', "Contact" %>
-          <%= f.submit 'Добавить', class: 'new button link_destroy' %>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render 'contact/edit_list' %>
   </div>
 
   <div class="info link">
-    <h3>Инструмент</h3>
-    <% @company.instruments.each do |instrument| %>
-      <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
-        <p class="print">
-          <%= (link_to instrument.name, "/additionalinfo/instrument/#{instrument.id}") %>
-          <%= hidden_field_tag 'link[what]', "Instrument" %>
-          <%= hidden_field_tag 'link[id]', instrument.id %>
-          <%= f.submit 'убрать', class: 'new button link_destroy' %>
-        </p>
-      <% end %>
-    <% end %>
-    <div>
-      <% unless instruments_name_id_with_filter(@company) == [] %>
-        <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
-          <%= select_tag('link[id]', options_for_select(instruments_name_id_with_filter(@company)), class: 'new select', id: :status) %>
-          <%= hidden_field_tag 'link[what]', "Instrument" %>
-          <%= f.submit 'Добавить', class: 'new button link_destroy' %>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render 'additionalinfo/instrument_list_edit' %>
   </div>
 
   <div class="info link">
-    <h3>Сервис</h3>
-    <% @company.services.each do |service| %>
-      <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
-        <p class="print">
-          <%= (link_to service.name, "/additionalinfo/service/#{service.id}") %>
-          <%= hidden_field_tag 'link[what]', "Service" %>
-          <%= hidden_field_tag 'link[id]', service.id %>
-          <%= f.submit 'убрать', class: 'new button link_destroy' %>
-        </p>
-      <% end %>
-    <% end %>
-    <div>
-      <% unless service_name_id_with_filter(@company) == [] %>
-        <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
-          <%= select_tag('link[id]', options_for_select(service_name_id_with_filter(@company)), class: 'new select', id: :status) %>
-          <%= hidden_field_tag 'link[what]', "Service" %>
-          <%= f.submit 'добавить', class: 'new button link_destroy' %>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render 'additionalinfo/service_list_edit' %>
   </div>
 
   <div class="info link">
-    <h3>Сферы деятельности</h3>
-    <% @company.sphereworks.each do |spherework| %>
-      <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
-        <p class="print">
-          <%= (link_to spherework.name, "/additionalinfo/spherework/#{spherework.id}") %>
-          <%= hidden_field_tag 'link[what]', "Spherework" %>
-          <%= hidden_field_tag 'link[id]', spherework.id %>
-          <%= f.submit 'убрать', class: 'new button link_destroy' %>
-        </p>
-      <% end %>
-    <% end %>
-    <div>
-      <% unless spherework_name_id_with_filter(@company) == [] %>
-        <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
-          <%= select_tag('link[id]', options_for_select(spherework_name_id_with_filter(@company)), class: 'new select', id: :status) %>
-          <%= hidden_field_tag 'link[what]', "Spherework" %>
-          <%= f.submit 'добавить', class: 'new button link_destroy' %>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render 'additionalinfo/spherework_list_edit' %>
   </div>
 
   <div class="info user">
-    <h3>
-      Менеджер
-    </h3>
-    <p class="print">
-      <%= link_to @company.user.name, user_path(@company.user) %>
-    </p>
+    <%= render 'user/edit_list' %>
+
   </div>
 
   <div class="info user">
-    <h3>
-      ЮрЛица
-    </h3>
-    <% @company.jurfaces.each do |jurface| %>
-      <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
-        <p class="print">
-          <%= link_to jurface.name, edit_jurface_path(jurface.id) %>
-          <%= hidden_field_tag 'link[what]', "Jurface" %>
-          <%= hidden_field_tag 'link[id]', jurface.id %>
-          <%= f.submit 'убрать', class: 'new button link_destroy' %>
-        </p>
-      <% end %>
-    <% end %>
-    <p>
-      <% unless jurface_name_id_with_filter(@company) == [] %>
-        <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
-          <%= select_tag('link[id]', options_for_select(jurface_name_id_with_filter(@company)), class: 'new select', id: :status) %>
-          <%= hidden_field_tag 'link[what]', "Jurface" %>
-          <%= f.submit 'добавить', class: 'new button link_destroy' %>
-        <% end %>
-      <% end %>
-    </p>
-    <%= render 'jurface/new_simple' %>
+    <%= render 'jurface/edit_list' %>
   </div>
 
   <div class="info user">
-    <h3>
-      Станки
-    </h3>
-    <% @company.machines.each do |machine| %>
-      <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
-        <p class="print">
-          <%= link_to machine.name, edit_machine_path(machine.id) %>
-          <%= hidden_field_tag 'link[what]', "Machine" %>
-          <%= hidden_field_tag 'link[id]', machine.id %>
-          <%= f.submit 'убрать', class: 'new button link_destroy' %>
-        </p>
-      <% end %>
-    <% end %>
-    <p>
-      <% unless machine_name_id_with_filter(@company) == [] %>
-        <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
-          <%= select_tag('link[id]', options_for_select(machine_name_id_with_filter(@company)), class: 'new select', id: :status) %>
-          <%= hidden_field_tag 'link[what]', "Machine" %>
-          <%= f.submit 'добавить', class: 'new button link_destroy' %>
-        <% end %>
-      <% end %>
-    </p>
+    <%= render 'machine/edit_list' %>
   </div>
 
 </div>
-<%# end %>

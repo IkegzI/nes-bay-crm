@@ -1,0 +1,8 @@
+<h3>Итоги общения</h3>
+<% unless @talk == [] %>
+  <p class="print"><%= @talk.last.typetalk.name %></p>
+  <p class="print"><%= @talk.last.contact.name %></p>
+  <p class="print"><%= @talk.last.text %></p>
+  <p><%= link_to_if @talk.size > 1, 'История общения', "#{@company.id}/talks" %></p>
+<% end %>
+<p><%= link_to 'Записать итоги общения', talk_path %></p>

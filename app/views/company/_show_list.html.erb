@@ -1,0 +1,7 @@
+<h3><%= @company.name %></h3>
+<%= link_to @company.region.name, region_path(@company.region) %>
+<p><%= @company.phone %></p>
+<p><%= @company.address %></p>
+
+<%= link_to 'Изменить', edit_company_path(@company), class: "link" %>
+<%= link_to 'Удалить', company_path(@company), method: 'DELETE', class: "link" %>

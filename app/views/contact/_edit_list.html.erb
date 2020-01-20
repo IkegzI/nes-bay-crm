@@ -1,0 +1,22 @@
+<h3>Контакты</h3>
+<% @company.contacts.each do |contact| %>
+  <div>
+    <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
+      <p class="print">
+        <%= link_to contact.name, contact_path(contact) %>
+        <%= hidden_field_tag 'link[what]', "Contact" %>
+        <%= hidden_field_tag 'link[id]', contact.id %>
+        <%= f.submit 'убрать', class: 'new button link_destroy' %>
+      </p>
+    <% end %>
+  </div>
+<% end %>
+<div>
+  <% unless contact_name_id_with_filter(@company) == [] %>
+    <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
+      <%= select_tag('link[id]', options_for_select(contact_name_id_with_filter(@company)), class: 'new select', id: :contact) %>
+      <%= hidden_field_tag 'link[what]', "Contact" %>
+      <%= f.submit 'Добавить', class: 'new button link_destroy' %>
+    <% end %>
+  <% end %>
+</div>

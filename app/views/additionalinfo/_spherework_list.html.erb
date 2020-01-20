@@ -1,0 +1,6 @@
+<h3>Сферы деятельности</h3>
+<% @company.sphereworks.each do |spherework| %>
+  <p class="print">
+    <%= (link_to spherework.name, "/additionalinfo/spherework/#{spherework.id}") %>
+  </p>
+<% end %>

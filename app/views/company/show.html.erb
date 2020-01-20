@@ -1,89 +1,38 @@
 <div class="data">
   <div class="info item" id="item">
-    <h3><%= @company.name %></h3>
-    <%= link_to @company.region.name, region_path(@company.region) %>
-    <p><%= @company.phone %></p>
-    <p><%= @company.address %></p>
-
-    <%= link_to 'Изменить', edit_company_path(@company), class: "link" %>
-    <%= link_to 'Удалить', company_path(@company), method: 'DELETE', class: "link" %>
+    <%= render 'company/show_list' %>
   </div>
 
   <div class="info link">
-    <h3>Итоги общения</h3>
-    <% unless @talk == [] %>
-      <p class="print"><%= @talk.last.typetalk.name %></p>
-      <p class="print"><%= @talk.last.contact.name %></p>
-      <p class="print"><%= @talk.last.text %></p>
-      <p><%= link_to_if @talk.size > 1, 'История общения', "#{@company.id}/talks" %></p>
-    <% end %>
-    <p><%= link_to 'Записать итоги общения', talk_path %></p>
+    <%= render 'talk/show_list' %>
   </div>
 
   <div class="info link">
-    <h3>Контакты</h3>
-    <% @company.contacts.each do |contact| %>
-      <p class="print">
-        <%= (link_to contact.name, contact_path(contact)) || '' %>
-      </p>
-    <% end %>
-    <%= link_to 'Добавить', new_contact_path %>
+    <%= render 'contact/show_list' %>
   </div>
 
   <div class="info link">
-    <h3>Инструмент</h3>
-    <% @company.instruments.each do |instrument| %>
-      <p class="print">
-        <%= (link_to instrument.name, "/additionalinfo/instrument/#{instrument.id}") %>
-      </p>
-    <% end %>
+    <%= render 'additionalinfo/instrument_list' %>
   </div>
 
   <div class="info link">
-    <h3>Сервис</h3>
-    <% @company.services.each do |service| %>
-      <p>
-        <%= (link_to service.name, "/additionalinfo/service/#{service.id}") %>
-      </p>
-    <% end %>
+    <%= render 'additionalinfo/service_list' %>
   </div>
 
   <div class="info link">
-    <h3>Сферы деятельности</h3>
-    <% @company.sphereworks.each do |spherework| %>
-      <p class="print">
-        <%= (link_to spherework.name, "/additionalinfo/spherework/#{spherework.id}") %>
-      </p>
-    <% end %>
+    <%= render 'additionalinfo/spherework_list' %>
   </div>
 
   <div class="info user">
-    <h3>
-      Менеджер
-    </h3>
-    <p class="print">
-      <%= link_to @company.user.name, user_path(@company.user) %>
-    </p>
+    <%= render 'user/show_list' %>
   </div>
 
   <div class="info user">
-    <h3>
-      ЮрЛица
-    </h3>
-    <% @company.jurfaces.each do |jurface| %>
-      <p class="print">
-      <%= link_to jurface.name, edit_jurface_path(jurface.id) %>
-    </p>
-      <% end %>
+    <%= render 'jurface/show_list' %>
   </div>
 
   <div class="info link">
-    <h3>Сервис</h3>
-    <% @company.machines.each do |machine| %>
-      <p>
-        <%= (link_to machine.name, "/machine/#{machine.id}") %>
-      </p>
-    <% end %>
+    <%= render 'machine/show_list' %>
   </div>
 
 </div>

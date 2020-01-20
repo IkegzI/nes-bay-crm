@@ -1,0 +1,23 @@
+<h3>Изменение сведений компании <br> <%= @company.name %></h3>
+<%= form_for :company, remote: true, url: edit_company_path(@company) do |f| %>
+  <p>
+    <%= f.label 'Имя компании' %>
+    <%= f.text_field :name, value: @company.name, class: 'editor text_field', id: :name %>
+  </p>
+
+  <p>
+    <%= f.label 'Телефон' %>
+    <%= f.text_field :phone, value: @company.phone, class: 'editor text_field', id: :phone %>
+  </p>
+
+  <p>
+    <%= f.label 'Адрес' %>
+    <%= f.text_field :address, value: @company.address, class: 'editor text_field', id: :address %>
+  </p>
+  <p>
+    <%= f.label 'Менеджер', class: 'label_field' %>
+    <%= f.select :user_id, options_for_select(user_name_id, @company.user.id), class: 'edit select', id: :user_id %>
+  </p>
+
+  <%= f.submit 'Изменить', class: 'button' %>
+<% end %>

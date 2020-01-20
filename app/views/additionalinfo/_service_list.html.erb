@@ -1,0 +1,6 @@
+<h3>Сервис</h3>
+<% @company.services.each do |service| %>
+  <p>
+    <%= (link_to service.name, "/additionalinfo/service/#{service.id}") %>
+  </p>
+<% end %>

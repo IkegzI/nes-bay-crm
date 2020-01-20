@@ -1,0 +1,23 @@
+<h3>
+  ЮрЛица
+</h3>
+<% @company.jurfaces.each do |jurface| %>
+  <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
+    <p class="print">
+      <%= link_to jurface.name, edit_jurface_path(jurface.id) %>
+      <%= hidden_field_tag 'link[what]', "Jurface" %>
+      <%= hidden_field_tag 'link[id]', jurface.id %>
+      <%= f.submit 'убрать', class: 'new button link_destroy' %>
+    </p>
+  <% end %>
+<% end %>
+<p>
+  <% unless jurface_name_id_with_filter(@company) == [] %>
+    <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
+      <%= select_tag('link[id]', options_for_select(jurface_name_id_with_filter(@company)), class: 'new select', id: :status) %>
+      <%= hidden_field_tag 'link[what]', "Jurface" %>
+      <%= f.submit 'добавить', class: 'new button link_destroy' %>
+    <% end %>
+  <% end %>
+</p>
+<%= render 'jurface/new_simple' %>

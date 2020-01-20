@@ -1,0 +1,7 @@
+<h3>Контакты</h3>
+<% @company.contacts.each do |contact| %>
+  <p class="print">
+    <%= (link_to contact.name, contact_path(contact)) || '' %>
+  </p>
+<% end %>
+<%= link_to 'Добавить', new_contact_path %>

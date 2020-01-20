@@ -1,0 +1,20 @@
+<h3>Сервис</h3>
+<% @company.services.each do |service| %>
+  <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
+    <p class="print">
+      <%= (link_to service.name, "/additionalinfo/service/#{service.id}") %>
+      <%= hidden_field_tag 'link[what]', "Service" %>
+      <%= hidden_field_tag 'link[id]', service.id %>
+      <%= f.submit 'убрать', class: 'new button link_destroy' %>
+    </p>
+  <% end %>
+<% end %>
+<div>
+  <% unless service_name_id_with_filter(@company) == [] %>
+    <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
+      <%= select_tag('link[id]', options_for_select(service_name_id_with_filter(@company)), class: 'new select', id: :status) %>
+      <%= hidden_field_tag 'link[what]', "Service" %>
+      <%= f.submit 'добавить', class: 'new button link_destroy' %>
+    <% end %>
+  <% end %>
+</div>

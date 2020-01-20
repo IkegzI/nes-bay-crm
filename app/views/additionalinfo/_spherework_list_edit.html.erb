@@ -1,0 +1,20 @@
+<h3>Сферы деятельности</h3>
+<% @company.sphereworks.each do |spherework| %>
+  <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
+    <p class="print">
+      <%= (link_to spherework.name, "/additionalinfo/spherework/#{spherework.id}") %>
+      <%= hidden_field_tag 'link[what]', "Spherework" %>
+      <%= hidden_field_tag 'link[id]', spherework.id %>
+      <%= f.submit 'убрать', class: 'new button link_destroy' %>
+    </p>
+  <% end %>
+<% end %>
+<div>
+  <% unless spherework_name_id_with_filter(@company) == [] %>
+    <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
+      <%= select_tag('link[id]', options_for_select(spherework_name_id_with_filter(@company)), class: 'new select', id: :status) %>
+      <%= hidden_field_tag 'link[what]', "Spherework" %>
+      <%= f.submit 'добавить', class: 'new button link_destroy' %>
+    <% end %>
+  <% end %>
+</div>
