@@ -44,6 +44,7 @@ Role.create(name: "Директор")
 Role.create(name: "Руководитель подразделения")
 Role.create(name: "Заточник")
 
+
 User.create(name: 'admin', login: 'admin', pass: '123',
             role_id: Role.find_by(name: 'Администратор').id,
             region_id: Region.find_by(name: 'Все регионы').id)
@@ -51,10 +52,10 @@ User.create(name: 'admin', login: 'admin', pass: '123',
 User.create(name: 'Артур Пирожков', login: 'manager1', pass: '123',
             role_id: Role.all.sample.id,
             region_id: Region.all.sample.id)
-
 User.create(name: 'Иван Иванов', login: 'manager2', pass: '123',
             role_id: Role.all.sample.id,
             region_id: Region.all.sample.id)
+puts '1111111111111111111'
 
 User.create(name: 'Артур Нитаньяху', login: 'manager3', pass: '123',
             role_id: Role.all.sample.id,
@@ -63,7 +64,6 @@ User.create(name: 'Артур Нитаньяху', login: 'manager3', pass: '123
 User.create(name: 'Иван Ургант', login: 'manager4', pass: '123',
             role_id: Role.all.sample.id,
             region_id: Region.all.sample.id)
-
 Instrument.create(name: 'Дисковые пилы')
 Instrument.create(name: 'Сверла')
 Instrument.create(name: 'Насадные фрезы')
