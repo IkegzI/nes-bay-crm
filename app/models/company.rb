@@ -10,4 +10,6 @@ class Company < ApplicationRecord
   has_many :talks
   has_many :equipments
   has_many :jurfaces
+
+  validates :name, uniqueness: true
 end
