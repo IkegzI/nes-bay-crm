@@ -8,7 +8,7 @@ class User < ApplicationRecord
   before_save :password_encrypt
 
   def password_encrypt
-    pass = Digest::SHA1.hexdigest(pass)
+    self.pass = Digest::SHA1.hexdigest(pass || '')
   end
 
 end

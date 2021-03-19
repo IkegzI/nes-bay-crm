@@ -12,4 +12,5 @@ class Company < ApplicationRecord
   has_many :jurfaces
 
   validates :name, uniqueness: true
+  
 end

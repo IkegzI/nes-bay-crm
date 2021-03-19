@@ -5,7 +5,8 @@ class SessionController < ApplicationController
 
   def create
     user = User.find_by(login: params_session[:login].downcase)
-    if user && user.pass == params_session[:pass]
+
+    if user && user.pass == Digest::SHA1.hexdigest(params_session[:pass])
       log_in(user)
       redirect_to user
     else
