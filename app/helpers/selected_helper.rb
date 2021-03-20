@@ -55,6 +55,11 @@ module SelectedHelper
     type_machine.map { |item| [item.name, item.id] }
   end
 
+  def machine_name_id
+    type_machine = Machine.all
+    type_machine.map { |item| [item.name, item.id] }
+  end
+
   def regions_name_id_with_filter(company)
     company = Company.find(company.id).regions.map { |item| [item.name, item.id] }
     region = Region.all.map { |item| [item.name, item.id] }

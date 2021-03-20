@@ -1,0 +1,6 @@
+<h3>Станок(машина)</h3>
+<% @company.machine.each do |machine| %>
+  <p class="print">
+    <%= (link_to machine.name, "/machine/machine/#{machine.id}") %>
+  </p>
+<% end %>

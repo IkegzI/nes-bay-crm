@@ -100,6 +100,44 @@ Typetalk.create(name: 'Телефон')
 Typetalk.create(name: 'Почта')
 Typetalk.create(name: 'Посещение')
 
+TypeMachine.create(name: 'Фуговальный')
+TypeMachine.create(name: 'ЧПУ')
+TypeMachine.create(name: 'Раскроечный')
+TypeMachine.create(name: 'Торцевой')
+
+Machine.create(name: random_str,
+               type_machine_id: TypeMachine.ids.sample,
+               instrument_id: Instrument.ids.sample,
+               landing1: rand(1..1000),
+               landing2: rand(1..100),
+               turnovers1: rand(1..1000),
+               turnovers2: rand(1..200))
+
+Machine.create(name: random_str,
+               type_machine_id: TypeMachine.ids.sample,
+               instrument_id: Instrument.ids.sample,
+               landing1: rand(1..1000),
+               landing2: rand(1..100),
+               turnovers1: rand(1..1000),
+               turnovers2: rand(1..200))
+
+Machine.create(name: random_str,
+               type_machine_id: TypeMachine.ids.sample,
+               instrument_id: Instrument.ids.sample,
+               landing1: rand(1..1000),
+               landing2: rand(1..100),
+               turnovers1: rand(1..1000),
+               turnovers2: rand(1..200))
+
+Machine.create(name: random_str,
+               type_machine_id: TypeMachine.ids.sample,
+               instrument_id: Instrument.ids.sample,
+               landing1: rand(1..1000),
+               landing2: rand(1..100),
+               turnovers1: rand(1..1000),
+               turnovers2: rand(1..200))
+
+# binding.pry
 Company.create(
     name: 'Нет информации',
     address: 'нет информации',
@@ -125,8 +163,9 @@ Company.create(
       equipment: 'Станок' + random_str,
       region_id: region,
       user_id: User.where(region_id: region).sample.id,
-      status_id: Status.all.sample.id
+      status_id: Status.all.sample.id,
   )
+  rand(1..Machine.all.size).times { |rnd| company.machines << Machine.all.sample }
   rand(1..Instrument.all.size).times { |rnd| company.instruments << Instrument.all.sample }
   rand(1..Service.all.size).times { |rnd| company.services << Service.all.sample }
   rand(1..Spherework.all.size).times { |rnd| company.sphereworks << Spherework.all.sample }

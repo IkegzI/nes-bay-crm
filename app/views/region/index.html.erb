@@ -5,15 +5,29 @@
 <div class="data">
   <% @region.each do |item| %>
     <div class="info item">
-    <h3><%= item.name %></h3>
-      <div class="image">
-        <img src="irk_obl.png" class="photo"></img>
+      <h3><%= item.name %></h3>
+
+      <div>
+        <% binding.pry %>
+        <p>Типы станков:</p>
+        <% @type_machines[item.id].each do |type| %>
+        <span><%= type.last %><%= @type_machines[item.id].last != type ? ', ' : '' %></span>
+          <% end %>
       </div>
-    <div class="link action">
-      <%= link_to 'Подробнее', region_path(item), class: "link item" %>
-      <%= link_to 'Изменить', edit_region_path(item), class: "link item" %>
-      <%= link_to 'Удалить', region_path(item), method: 'DELETE', class: "link item" %>
-    </div>
+
+
+
+
+      <!--      <div>-->
+      <!--        <p>Cтанки:</p>-->
+      <%#= @name_machines[item.id].each{|type| "<span>#{type}</span>"} %>
+      <!--      </div>-->
+      <br>
+      <div class="link action">
+        <%= link_to 'Подробнее', region_path(item), class: "link item" %>
+        <%= link_to 'Изменить', edit_region_path(item), class: "link item" %>
+        <%= link_to 'Удалить', region_path(item), method: 'DELETE', class: "link item" %>
+      </div>
     </div>
   <% end %>
 </div>

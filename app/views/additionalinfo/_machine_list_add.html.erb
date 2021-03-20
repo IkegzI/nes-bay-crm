@@ -1,0 +1,7 @@
+<h3>Станок(машина)</h3>
+<% machine_name_id.each do |item| %>
+  <p class="print">
+    <%= label_tag item.first %>
+    <%= check_box_tag "company[machine][]", item.last %>
+  </p>
+<% end %>

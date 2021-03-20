@@ -1,0 +1,20 @@
+<h3>Станок(машина)</h3>
+<% @company.machine.each do |machine| %>
+  <%= form_for :link, remote: true, url: 'del/link', method: :delete, class: 'new form' do |f| %>
+    <p class="print">
+      <%= (link_to machine.name, "/additionalinfo/instrument/#{machine.id}") %>
+      <%= hidden_field_tag 'link[what]', "Instrument" %>
+      <%= hidden_field_tag 'link[id]', machine.id %>
+      <%= f.submit 'убрать', class: 'new button link_destroy' %>
+    </p>
+  <% end %>
+<% end %>
+<div>
+  <% unless machine_name_id_with_filter(@company) == [] %>
+    <%= form_for :link, remote: true, url: 'add/link', class: 'new form' do |f| %>
+      <%= select_tag('link[id]', options_for_select(instruments_name_id_with_filter(@company)), class: 'new select', id: :status) %>
+      <%= hidden_field_tag 'link[what]', "Instrument" %>
+      <%= f.submit 'Добавить', class: 'new button link_destroy' %>
+    <% end %>
+  <% end %>
+</div>

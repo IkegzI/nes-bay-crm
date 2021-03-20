@@ -1,6 +1,7 @@
 require "application_controller.rb"
 
 class CompanyController < ApplicationController
+
   # def create
   #   @company = Company.new
   # end
@@ -17,8 +18,6 @@ class CompanyController < ApplicationController
         add_info_companies(company, clas.first, item)
       end
     end
-
-
     redirect_to session[:forward_url] || company_path(company)
   end
 
