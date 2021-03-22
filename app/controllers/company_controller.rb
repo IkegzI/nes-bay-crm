@@ -41,7 +41,11 @@ class CompanyController < ApplicationController
   end
 
   def index
-    @company = Company.where(region_id: current_region)
+    unless session[:role] == "Администратор"
+      @company = Company.where(region_id: current_region)
+    else
+      @company = Company.all
+    end
   end
 
   def find_per_inst(item)

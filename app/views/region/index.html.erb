@@ -7,21 +7,15 @@
     <div class="info item">
       <h3><%= item.name %></h3>
 
+      <!--      tz4 вывод информации от типах-->
       <div>
-        <% binding.pry %>
         <p>Типы станков:</p>
         <% @type_machines[item.id].each do |type| %>
-        <span><%= type.last %><%= @type_machines[item.id].last != type ? ', ' : '' %></span>
-          <% end %>
+          <span><%= type.last %><%= @type_machines[item.id].last != type ? ', ' : '' %></span>
+        <% end %>
       </div>
+      <!--      tz4 вывод информации от типах-->
 
-
-
-
-      <!--      <div>-->
-      <!--        <p>Cтанки:</p>-->
-      <%#= @name_machines[item.id].each{|type| "<span>#{type}</span>"} %>
-      <!--      </div>-->
       <br>
       <div class="link action">
         <%= link_to 'Подробнее', region_path(item), class: "link item" %>

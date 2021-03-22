@@ -41,4 +41,5 @@ Rails.application.routes.draw do
 
   post 'machine/new' => 'machine#create'
   post 'machine/:id/edit' => 'machine#update'
+
 end

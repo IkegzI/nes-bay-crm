@@ -2,7 +2,7 @@
   <div class="info">
     <h1>Добавить станок</h1>
 
-    <%= form_for :machine, url: '/machine/new', class: 'new form' do |f| %>
+    <%= form_for :machine, url: "/machine/#{@machine.id}/edit", class: 'new form' do |f| %>
       <div>
         <p>
           <%= f.label 'Название', class: 'label_field' %>

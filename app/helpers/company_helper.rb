@@ -22,4 +22,11 @@ module CompanyHelper
     end
   end
 
+  #tz3 хелпер можно использовать как во вьюхе, так и при сохранении, изменяя имя
+  # сейчас используется только во вьюхе index, при таком возник вопрос, ка
+
+  def name_from_tz(company)
+    "#{company.name[0..2]} #{company.region_id}"
+  end
+
 end

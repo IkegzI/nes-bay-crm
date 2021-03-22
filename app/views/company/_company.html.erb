@@ -1,7 +1,8 @@
 <% @company.each_with_index do |item, index| %>
   <div class="info item" id="<%= item.id %>">
-<!--    <h3 class="<%#= "#{item.class.to_s.downcase} #{item.attribute_names[1]}" %>"><%#= "#{item.name[0..2]} #{item.region_id}" %></h3>-->
+<!--    имя компании отображается по тз 2 -->
     <h3 class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[1]}" %>"><%= item.name %></h3>
+    <h3 class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[1]}" %>"><%= name_from_tz(item) %></h3>
     <span class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[2]}" %>"><%= item.address %></span>
     <span class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[3]}" %>"><%= item.phone %></span>
     <span class="<%= "#{item.class.to_s.downcase} #{item.attribute_names[4]}" %>"><%= item.region.name || '' %></span>

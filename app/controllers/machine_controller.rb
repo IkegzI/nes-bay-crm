@@ -8,6 +8,11 @@ class MachineController < ApplicationController
     @machine = Machine.find(params_id)
   end
 
+  def update
+    Machine.update(params_id, params_machine)
+    redirect_to machine_path(params_id)
+  end
+
 
   def create
     machine = Machine.new(params_machine)
@@ -24,14 +29,14 @@ class MachineController < ApplicationController
 
   def params_machine
     params.require(:machine).permit(
-                                    :name,
-                                    :instrument_id,
-                                    :type_machine_id,
-                                    :landing1,
-                                    :landing2,
-                                    :turnovers1,
-                                    :turnovers2
-                                    )
+        :name,
+        :instrument_id,
+        :type_machine_id,
+        :landing1,
+        :landing2,
+        :turnovers1,
+        :turnovers2
+    )
   end
 
 end
