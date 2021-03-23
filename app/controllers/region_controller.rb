@@ -11,8 +11,13 @@ class RegionController < ApplicationController
   end
 
   def index
-    @region = Region.all
     #tz4
+    user = User.find(session[:user_id])
+    if user.role.name == "Администратор"
+      @region = Region.all
+    else
+      @region = Region.find(user.region_id)
+    end
     @type_machines = {}
     @name_machines = {}
     @region.ids.each do |region_id|
