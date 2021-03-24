@@ -1,6 +1,24 @@
+<script>
+    window.onload = function () {
+
+        var paramsString = document.location.search;
+        var searchParams = new URLSearchParams(paramsString);
+
+        document.getElementById('user').value = searchParams.get("user_id")
+    };
+
+    function linkChange() {
+        var user_id =  document.getElementById('user').value;
+        document.location.href = "/region?user_id=" + user_id
+    }
+</script>
+
 <h1>Регионы</h1>
 <div>
   <%= link_to 'Создать регион', new_region_path %>
+</div>
+<div>
+  <%= select_tag('link[id]', options_for_select(user_name_id), class: 'new select', id: :user, onchange: 'linkChange()') %>
 </div>
 <div class="data">
   <% @region.each do |item| %>
